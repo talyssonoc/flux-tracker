@@ -1,0 +1,50 @@
+{
+  "projects": [
+    {
+      "id": 0,
+      "name": "Project zero"
+    },
+    {
+      "id": 1,
+      "name": "Project one"
+    }
+  ],
+  "stories": [
+    {
+      "id": 0,
+      "text": "Story zero",
+      "state": "accepted",
+      "project_id": 0
+    },
+    {
+      "id": 1,
+      "text": "Story one",
+      "state": "started",
+      "project_id": 1
+    },
+    {
+      "id": 2,
+      "text": "Story two",
+      "state": "unstarted",
+      "project_id": 0
+    },
+    {
+      "id": 3,
+      "text": "Story three",
+      "state": "delivered",
+      "project_id": 1
+    },
+    {
+      "id": 4,
+      "text": "Story four",
+      "state": "started",
+      "project_id": 0
+    },
+    {
+      "id": 5,
+      "text": "Story five",
+      "state": "rejected",
+      "project_id": 1
+    }
+  ]
+}
