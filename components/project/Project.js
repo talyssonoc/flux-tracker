@@ -1,24 +1,53 @@
 import React from 'react';
 
+import Column from './Column';
+
 class Project extends React.Component {
+  getColumn(story) {
+    return this.props.columns[story.state];
+  }
+
   render() {
-    var stories = this.props.stories.map((story) => {
-      return (
-        <li key={"story-" + story.id}>
-          {story.text}
-        </li>
-      );
-    });
+    var columns = [];
+
+    if(this.props.stories) {
+
+      var columnsData = {};
+
+      this.props.columns.forEach((column) => {
+        columnsData[column] = [];
+      });
+
+      this.props.stories.forEach((story) => {
+        columnsData[story.column].push(story);
+      });
+
+      columns = this.props.columns.map((column) => {
+        return (
+          <Column
+          name={ column }
+          stories={ columnsData[column] }
+          />
+        );
+      });
+    }
 
     return (
       <div>
-        <h1>Project: {this.props.name}</h1>
-        <ul>
-          { stories }
-        </ul>
+        <h1>Project: { this.props.name }</h1>
+        { columns }
       </div>
     );
   }
 }
+
+Project.defaultProps = {
+  columns: [
+    'done',
+    'current',
+    'backlog',
+    'icebox'
+  ]
+};
 
 export default Project;

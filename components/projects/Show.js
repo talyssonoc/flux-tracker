@@ -6,6 +6,7 @@ import { NavLink } from 'fluxible-router';
 import Project from '../project/Project';
 
 import ProjectsStore from '../../stores/ProjectsStore';
+import StoriesStore from '../../stores/StoriesStore';
 
 class Show extends React.Component {
 
@@ -15,7 +16,10 @@ class Show extends React.Component {
         <NavLink routeName='projects'>
           Back
         </NavLink>
-        <Project {...this.props.project}/>
+        <Project
+          {...this.props.project}
+          stories={ this.props.stories }
+        />
       </div>
     );
   }
@@ -23,12 +27,14 @@ class Show extends React.Component {
 
 export default connectToStores(
   Show,
-  [ ProjectsStore ],
+  [ ProjectsStore, StoriesStore ],
   function(stores, props) {
-    let currentProject = stores.ProjectsStore.getCurrentProject();
+    var project = stores.ProjectsStore.getCurrentProject();
+    var stories = stores.StoriesStore.getStories();
 
     return {
-      project: currentProject
+      project: project,
+      stories: stories
     };
   }
 );

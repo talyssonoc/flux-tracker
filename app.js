@@ -10,9 +10,10 @@ let fetchr = fetchrPlugin({
 
 import Application from './components/Application';
 
+import ApplicationStore from './stores/ApplicationStore';
 import RouteStore from './stores/RouteStore';
 import ProjectsStore from './stores/ProjectsStore';
-import ApplicationStore from './stores/ApplicationStore';
+import StoriesStore from './stores/StoriesStore';
 
 // create new fluxible instance
 const app = new Fluxible({
@@ -26,5 +27,6 @@ app.plug(fetchr);
 app.registerStore(RouteStore);
 app.registerStore(ApplicationStore);
 app.registerStore(ProjectsStore);
+app.registerStore(StoriesStore);
 
 export default app;

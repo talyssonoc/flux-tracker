@@ -10,13 +10,17 @@ import ProjectsStore from '../../stores/ProjectsStore';
 class Index extends React.Component {
 
   render() {
-    var projects = this.props.projects.map((project) => {
-      return (
-        <li key={"project-" + project.id}>
-          <ProjectItem project={ project }/>
-        </li>
-      );
-    });
+    var projects = [];
+
+    if(this.props.projects) {
+      projects = this.props.projects.map((project) => {
+        return (
+          <li key={"project-" + project.id}>
+            <ProjectItem project={ project }/>
+          </li>
+        );
+      });
+    }
 
     return (
       <div>
