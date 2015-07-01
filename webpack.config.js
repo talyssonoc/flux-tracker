@@ -2,7 +2,7 @@ module.exports = {
   resolve: {
     extensions: ['', '.js']
   },
-  entry: './client.js',
+  entry: './app/client/index.js',
   output: {
     path: './build/js',
     publicPath: '/public/js/',

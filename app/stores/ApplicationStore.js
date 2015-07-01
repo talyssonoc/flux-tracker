@@ -1,5 +1,5 @@
 import BaseStore from 'fluxible/addons/BaseStore';
-import routesConfig from '../configs/routes';
+import routesConfig from '../../configs/routes';
 import RouteStore from './RouteStore';
 
 class ApplicationStore extends BaseStore {

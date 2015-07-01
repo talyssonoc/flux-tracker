@@ -1,7 +1,7 @@
 /*globals document*/
 
 import React from 'react';
-import ApplicationStore from '../stores/ApplicationStore';
+import ApplicationStore from './stores/ApplicationStore';
 import provideContext from 'fluxible/addons/provideContext';
 import connectToStores from 'fluxible/addons/connectToStores';
 import { handleHistory } from 'fluxible-router';

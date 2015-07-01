@@ -3,7 +3,7 @@ import connectToStores from 'fluxible/addons/connectToStores';
 
 import { NavLink } from 'fluxible-router';
 
-import ProjectItem from '../project/ProjectItem';
+import ProjectItem from '../../components/project/ProjectItem';
 
 import ProjectsStore from '../../stores/ProjectsStore';
 

@@ -16,12 +16,12 @@ import React from 'react';
 
 // App imports
 
-import app from './app';
+import app from '../app';
 
-import { registerServices } from './utils';
-import HtmlComponent from './components/Html';
+import { registerServices } from '../utils';
+import HtmlComponent from './Html';
 
-app.root = __dirname;
+app.root = path.resolve(__dirname, '..');
 
 let fetchr = registerServices(app);
 
@@ -29,7 +29,7 @@ const htmlComponent = React.createFactory(HtmlComponent);
 
 const debug = debugLib('flux-tracker');
 
-global.db = low('database/db.json', { autosave: false });
+global.db = low(path.join(__dirname, '../../database/db.json'), { autosave: false });
 
 // Server stuff
 
@@ -37,7 +37,7 @@ const server = express();
 
 server.set('state namespace', 'App');
 
-server.use('/public', express.static(path.join(__dirname, '/build')));
+server.use('/public', express.static(path.join(__dirname, '../../build')));
 
 server.use(fetchr.getXhrPath(), fetchr.getMiddleware());
 

@@ -1,5 +1,5 @@
-import handler from '../utils/getHandler';
-import action from '../utils/getAction';
+import handler from '../app/utils/getHandler';
+import action from '../app/utils/getAction';
 
 export default {
   projects: {
