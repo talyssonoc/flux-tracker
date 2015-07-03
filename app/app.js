@@ -10,10 +10,10 @@ let fetchr = fetchrPlugin({
 
 import Application from './Application';
 
-import ApplicationStore from './stores/ApplicationStore';
-import RouteStore from './stores/RouteStore';
-import ProjectsStore from './stores/ProjectsStore';
-import StoriesStore from './stores/StoriesStore';
+import ApplicationStore from 'app/stores/ApplicationStore';
+import RouteStore from 'app/stores/RouteStore';
+import ProjectsStore from 'app/stores/ProjectsStore';
+import StoriesStore from 'app/stores/StoriesStore';
 
 // create new fluxible instance
 const app = new Fluxible({

@@ -16,7 +16,10 @@ gulp.task('nodemon:app', ['clean'], function () {
     nodemon({
       script: './start.js',
       ignore: ['build/**'],
-      ext: 'js'
+      ext: 'js',
+      env: {
+        NODE_PATH: __dirname
+      }
     });
 });
 

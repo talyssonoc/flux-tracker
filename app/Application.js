@@ -1,10 +1,14 @@
 /*globals document*/
 
 import React from 'react';
-import ApplicationStore from './stores/ApplicationStore';
+import ApplicationStore from 'app/stores/ApplicationStore';
 import provideContext from 'fluxible/addons/provideContext';
 import connectToStores from 'fluxible/addons/connectToStores';
 import { handleHistory } from 'fluxible-router';
+
+if(process.env.BROWSER) {
+  require('app/styles/application.scss');
+}
 
 class Application extends React.Component {
   render() {

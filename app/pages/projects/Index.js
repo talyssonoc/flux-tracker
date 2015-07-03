@@ -3,9 +3,13 @@ import connectToStores from 'fluxible/addons/connectToStores';
 
 import { NavLink } from 'fluxible-router';
 
-import ProjectItem from '../../components/project/ProjectItem';
+import ProjectItem from 'app/components/project/ProjectItem';
 
-import ProjectsStore from '../../stores/ProjectsStore';
+import ProjectsStore from 'app/stores/ProjectsStore';
+
+if(process.env.BROWSER) {
+  require('app/styles/pages/projects/index.scss');
+}
 
 class Index extends React.Component {
 

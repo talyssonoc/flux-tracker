@@ -8,6 +8,10 @@ import Project from '../../components/project/Project';
 import ProjectsStore from '../../stores/ProjectsStore';
 import StoriesStore from '../../stores/StoriesStore';
 
+if(process.env.BROWSER) {
+  require('app/styles/pages/projects/show.scss');
+}
+
 class Show extends React.Component {
 
   render() {
