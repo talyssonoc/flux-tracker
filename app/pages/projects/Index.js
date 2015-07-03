@@ -1,11 +1,11 @@
 import React from 'react';
 import connectToStores from 'fluxible/addons/connectToStores';
-
 import { NavLink } from 'fluxible-router';
 
 import ProjectItem from 'app/components/project/ProjectItem';
-
 import ProjectsStore from 'app/stores/ProjectsStore';
+
+import B from 'b_';
 
 if(process.env.BROWSER) {
   require('app/styles/pages/projects/index.scss');
@@ -27,15 +27,19 @@ class Index extends React.Component {
     }
 
     return (
-      <div>
+      <div className={ this.props.bem() }>
         <h1>Projects</h1>
-        <ul>
+        <ul className={ this.props.bem('list') }>
           { projects }
         </ul>
       </div>
     );
   }
 }
+
+Index.defaultProps = {
+  bem: B.with('projects-index')
+};
 
 export default connectToStores(
   Index,

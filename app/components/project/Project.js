@@ -2,6 +2,8 @@ import React from 'react';
 
 import Column from './Column';
 
+import B from 'b_';
+
 class Project extends React.Component {
   getColumn(story) {
     return this.props.columns[story.state];
@@ -33,7 +35,7 @@ class Project extends React.Component {
     }
 
     return (
-      <div>
+      <div className={ this.props.bem() }>
         <h1>Project: { this.props.name }</h1>
         { columns }
       </div>
@@ -47,7 +49,8 @@ Project.defaultProps = {
     'current',
     'backlog',
     'icebox'
-  ]
+  ],
+  bem: B.with('project')
 };
 
 export default Project;

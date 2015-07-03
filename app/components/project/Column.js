@@ -2,6 +2,8 @@ import React from 'react';
 
 import Story from './Story';
 
+import B from 'b_';
+
 class Column extends React.Component {
 
   render() {
@@ -16,7 +18,7 @@ class Column extends React.Component {
     }
 
     return (
-      <div>
+      <div className={ this.props.bem() }>
         <h2>{ this.props.name }</h2>
         <ul>
           { stories }
@@ -25,5 +27,9 @@ class Column extends React.Component {
     );
   }
 }
+
+Column.defaultProps = {
+  bem: B.with('column')
+};
 
 export default Column;

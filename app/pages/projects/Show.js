@@ -1,12 +1,12 @@
 import React from 'react';
 import connectToStores from 'fluxible/addons/connectToStores';
-
 import { NavLink } from 'fluxible-router';
 
-import Project from '../../components/project/Project';
+import Project from 'app/components/project/Project';
+import ProjectsStore from 'app/stores/ProjectsStore';
+import StoriesStore from 'app/stores/StoriesStore';
 
-import ProjectsStore from '../../stores/ProjectsStore';
-import StoriesStore from '../../stores/StoriesStore';
+import B from 'b_';
 
 if(process.env.BROWSER) {
   require('app/styles/pages/projects/show.scss');
@@ -16,7 +16,7 @@ class Show extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={ this.props.bem() }>
         <NavLink routeName='projects'>
           Back
         </NavLink>
@@ -28,6 +28,10 @@ class Show extends React.Component {
     );
   }
 }
+
+Show.defaultProps = {
+  bem: B.with('projects-show')
+};
 
 export default connectToStores(
   Show,
