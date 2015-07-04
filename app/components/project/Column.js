@@ -2,7 +2,7 @@ import React from 'react';
 
 import Story from './Story';
 
-import B from 'b_';
+import B from 'app/helpers/bem';
 
 class Column extends React.Component {
 

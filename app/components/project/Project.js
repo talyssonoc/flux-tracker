@@ -2,7 +2,7 @@ import React from 'react';
 
 import Column from './Column';
 
-import B from 'b_';
+import B from 'app/helpers/bem';
 
 class Project extends React.Component {
   getColumn(story) {

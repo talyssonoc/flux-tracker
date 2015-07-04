@@ -1,6 +1,6 @@
 import React from 'react';
 
-import B from 'b_';
+import B from 'app/helpers/bem';
 
 class Story extends React.Component {
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'fluxible-router';
 
-import B from 'b_';
+import B from 'app/helpers/bem';
 
 class ProjectItem extends React.Component {
   render() {

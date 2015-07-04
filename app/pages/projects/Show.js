@@ -6,7 +6,7 @@ import Project from 'app/components/project/Project';
 import ProjectsStore from 'app/stores/ProjectsStore';
 import StoriesStore from 'app/stores/StoriesStore';
 
-import B from 'b_';
+import B from 'app/helpers/bem';
 
 if(process.env.BROWSER) {
   require('app/styles/pages/projects/show.scss');

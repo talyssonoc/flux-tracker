@@ -18,7 +18,7 @@ import React from 'react';
 
 import app from 'app/app';
 
-import { registerServices } from 'app/utils';
+import { registerServices } from 'app/helpers';
 import HtmlComponent from './Html';
 
 app.root = path.resolve(__dirname, '..');

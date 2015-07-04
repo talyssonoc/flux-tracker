@@ -1,3 +1,3 @@
-import { createService } from 'app/utils';
+import { createService } from 'app/helpers';
 
 export default createService('projects', { name: 'project' });

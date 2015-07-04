@@ -5,7 +5,7 @@ import { NavLink } from 'fluxible-router';
 import ProjectItem from 'app/components/project/ProjectItem';
 import ProjectsStore from 'app/stores/ProjectsStore';
 
-import B from 'b_';
+import B from 'app/helpers/bem';
 
 if(process.env.BROWSER) {
   require('app/styles/pages/projects/index.scss');
