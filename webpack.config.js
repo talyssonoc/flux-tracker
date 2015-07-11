@@ -1,5 +1,8 @@
-var webpack = require('webpack');
 var path = require('path');
+
+var webpack = require('webpack');
+
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   resolve: {
@@ -14,14 +17,6 @@ module.exports = {
   },
   module: {
     loaders: [
-      {
-        test: /\.scss$/,
-        loader: 'style!css!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true'
-      },
-      {
-        test: /\.css$/,
-        loader: 'style-loader!css-loader'
-      },
       {
         test: /\.js$/,
         exclude: /node_modules/,

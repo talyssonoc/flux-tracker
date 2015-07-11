@@ -1,0 +1,15 @@
+.project {
+  width: 100%;
+  display: table;
+  border-collapse: collapse;
+  table-layout: fixed;
+
+  &__column {
+    display: table-cell;
+    border: 1px solid black;
+
+    &__name {
+      text-align: center;
+    }
+  }
+}

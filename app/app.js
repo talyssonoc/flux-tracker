@@ -8,7 +8,7 @@ let fetchr = fetchrPlugin({
     xhrPath: '/api'
 });
 
-import Application from './Application';
+import Application from './components/Application';
 
 import ApplicationStore from 'app/stores/ApplicationStore';
 import RouteStore from 'app/stores/RouteStore';

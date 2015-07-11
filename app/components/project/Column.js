@@ -7,19 +7,23 @@ import B from 'app/helpers/bem';
 class Column extends React.Component {
 
   render() {
-    var stories = [];
-
-    if(this.props.stories) {
-      stories = this.props.stories.map((story) => {
-        return (
-          <li><Story {...story}/></li>
-        );
-      });
-    }
+    var stories = this.props.stories.map((story) => {
+      return (
+        <li key={ `story-${story.id}`} >
+          <Story
+            {...story}
+          />
+        </li>
+      );
+    });
 
     return (
       <div className={ this.props.bem() }>
-        <h2>{ this.props.name }</h2>
+        <h2
+          className={ this.props.bem('name') }
+        >
+          { this.props.name }
+        </h2>
         <ul>
           { stories }
         </ul>
@@ -29,7 +33,8 @@ class Column extends React.Component {
 }
 
 Column.defaultProps = {
-  bem: B.with('column')
+  bem: B.with('project__column'),
+  stories: []
 };
 
 export default Column;

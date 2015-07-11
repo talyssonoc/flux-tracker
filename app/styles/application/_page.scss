@@ -1,0 +1,16 @@
+.page {
+
+  &__header {
+    width: 100%;
+    padding: 15px;
+    margin: 0 0 20px;
+    color: $color-title;
+    background-color: $color-title-bg;
+  }
+
+  &__title {
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica;
+  }
+}

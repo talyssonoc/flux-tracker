@@ -6,14 +6,9 @@ import provideContext from 'fluxible/addons/provideContext';
 import connectToStores from 'fluxible/addons/connectToStores';
 import { handleHistory } from 'fluxible-router';
 
-if(process.env.BROWSER) {
-  require('app/styles/application.scss');
-}
-
 class Application extends React.Component {
   render() {
     var Handler = this.props.currentRoute.get('handler');
-
     return (<Handler/>);
   }
 

@@ -6,7 +6,7 @@ import B from 'app/helpers/bem';
 class ProjectItem extends React.Component {
   render() {
     return (
-      <div className={ this.props.bem() }>
+      <div className={ `${this.props.bem()} ${this.props.className}` }>
         <NavLink
           routeName='show_project'
           navParams={{ id: this.props.project.id }}
@@ -19,7 +19,8 @@ class ProjectItem extends React.Component {
 }
 
 ProjectItem.defaultProps = {
-  bem: B.with('project-item')
+  bem: B.with('project-item'),
+  className: ''
 };
 
 export default ProjectItem;

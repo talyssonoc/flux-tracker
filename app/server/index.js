@@ -7,6 +7,9 @@ import debugLib from 'debug';
 
 import express from 'express';
 import low from 'lowdb';
+import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
+import csurf from 'csurf';
 
 // Flux/React imports
 
@@ -18,8 +21,8 @@ import React from 'react';
 
 import app from 'app/app';
 
-import { registerServices } from 'app/helpers';
-import HtmlComponent from './Html';
+import registerServices from 'app/helpers/registerServices';
+import HtmlComponent from 'app/components/Html';
 
 app.root = path.resolve(__dirname, '..');
 
@@ -36,6 +39,9 @@ global.db = low(path.join(__dirname, '../../database/db.json'), { autosave: fals
 const server = express();
 
 server.set('state namespace', 'App');
+
+server.use(bodyParser.json());
+server.use(cookieParser());
 
 server.use('/public', express.static(path.join(__dirname, '../../build')));
 
