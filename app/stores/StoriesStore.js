@@ -14,6 +14,16 @@ class StoriesStore extends BaseStore {
       rejected: 'current'
     };
 
+    this.actionsForStates = {
+      icebox: ['Start'],
+      unstarted: ['Start'],
+      started: ['Finish'],
+      finished: ['Deliver'],
+      delivered: ['Accept', 'Reject'],
+      accepted: [],
+      rejected: ['Reset']
+    };
+
     this.stories = [];
   }
 
@@ -25,8 +35,8 @@ class StoriesStore extends BaseStore {
     return this.columnsForStates[story.state];
   }
 
-  getAllStates() {
-    return Object.keys(this.columnsForStates);
+  getActions(story) {
+    return this.actionsForStates[story.state];
   }
 
   handleReceiveStories(payload) {
@@ -34,6 +44,7 @@ class StoriesStore extends BaseStore {
 
     this.stories = this.stories.map((story) => {
       story.column = this.getColumn(story);
+      story.actions = this.getActions(story);
       return story;
     });
 
@@ -45,6 +56,7 @@ class StoriesStore extends BaseStore {
 
     story.state = payload.story.state;
     story.column = this.getColumn(story);
+    story.actions = this.getActions(story);
 
     this.emitChange();
   }

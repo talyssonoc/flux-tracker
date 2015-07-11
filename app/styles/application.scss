@@ -1,5 +1,7 @@
 @import 'application/base',
         'application/variables',
-        'application/page',
-        'components',
+        'application/mixins',
+        'application/page';
+
+@import 'components',
         'pages';

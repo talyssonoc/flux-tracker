@@ -1,0 +1,20 @@
+{
+  projects: [
+    '{{repeat(3)}}',
+    {
+      id: '{{index()}}',
+      name: '{{firstName()}} {{index()}}'
+    }
+  ],
+  stories: [
+    '{{repeat(60)}}',
+    {
+      id: '{{index()}}',
+      state: '{{random("icebox", "unstarted", "started", "finished", "delivered", "accepted", "rejected")}}',
+      type: '{{random("feature", "chore", "bug", "release")}}',
+      title: function() {
+       return this.type + ' ' + this.id;
+      }
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 export default function changeStoryState(context, payload, done) {
   context.service.update(
     'story',
-    { id: payload.story.id },
+    { id: payload.storyId },
     { state: payload.newState },
     {},
     function(err, story) {

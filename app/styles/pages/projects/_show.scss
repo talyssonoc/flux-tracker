@@ -1,4 +1,28 @@
 .projects-show {
-  &__project {
+
+  &__header {
+    &__back-link {
+      width: 37px;
+      height: 37px;
+      text-align: center;
+      display: block;
+      background-color: #000;
+      border-radius: 5px;
+      float: left;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 30px;
+      margin-right: 25px;
+    }
+  }
+
+  &__visible-columns {
+    float: right;
+
+    &__item {
+      display: inline;
+
+    }
   }
 }

@@ -41,6 +41,7 @@ gulp.task('build-cli-dev', ['webpack:dev'], function() {
   gulp.watch([
     './app/stores/**/*.js',
     './app/components/**/*.js',
+    './app/mixins/**/*.js',
     './app/pages/**/*.js',
     './app/actions/**/*.js'
   ], ['webpack:dev']);

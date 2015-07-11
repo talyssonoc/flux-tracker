@@ -1,64 +1,37 @@
 import React from 'react';
 import connectToStores from 'fluxible/addons/connectToStores';
 
-import changeStoryState from 'app/actions/changeStoryState';
+import StoryActions from './StoryActions';
+
 import StoriesStore from 'app/stores/StoriesStore';
 
 import B from 'app/helpers/bem';
-import contextTypes from 'app/helpers/contextTypes';
 
 class Story extends React.Component {
 
   render() {
 
-    var possibleStates = this.props.possibleStates.map((state) => {
-      return (
-        <option
-          value={ state }
-          key={ 'state-' + state}
-        >
-          { state }
-        </option>);
-    });
+    var modifiers = {};
+
+    modifiers[this.props.type] = true;
 
     return (
-
-      <div className={ this.props.bem() }>
-        { this.props.title }
-        <select
-          value={ this.props.state }
-          onChange={ this.storyStateChangeHandler.bind(this) }
-          ref="stateSelect"
-        >
-          { possibleStates }
-        </select>
+      <div className={ `${this.props.className} ${this.props.bem(modifiers)}` }>
+        <h3 className={ this.props.bem('title') }>
+          { this.props.title }
+        </h3>
+        <StoryActions
+          actions={ this.props.actions }
+          storyId={ this.props.id }
+        />
       </div>
     );
-  }
-
-  storyStateChangeHandler() {
-    var newState = React.findDOMNode(this.refs.stateSelect).value;
-
-    this.context.executeAction(changeStoryState, {
-      story: this.props,
-      newState: newState
-    });
   }
 }
 
 Story.defaultProps = {
-  bem: B.with('project__story'),
-  possibleStates: []
+  bem: B.with('story'),
+  className: ''
 };
 
-Story.contextTypes = contextTypes();
-
-export default connectToStores(
-  Story,
-  [ StoriesStore ],
-  function(store, props) {
-    return {
-      possibleStates: store.StoriesStore.getAllStates()
-    };
-  }
-);
+export default Story;

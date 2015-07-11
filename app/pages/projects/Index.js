@@ -16,7 +16,10 @@ class Index extends React.Component {
     if(this.props.projects) {
       projects = this.props.projects.map((project) => {
         return (
-          <li key={"project-" + project.id}>
+          <li
+            key={"project-" + project.id}
+            className={ this.props.bem('list__item') }
+          >
             <ProjectItem project={ project } className={ this.props.bem('project') }/>
           </li>
         );

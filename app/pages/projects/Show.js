@@ -30,30 +30,35 @@ class Show extends React.Component {
         }
 
         return (
-          <div key={ `toggle-column-${ c }` }>
-            <label>{ c }</label>
+          <div
+            key={ `toggle-column-${ c }` }
+            className={ this.props.bem('visible-columns__item') }
+          >
             <input
               type="checkbox"
               checked={ columnValue }
               onChange={ () => this.toggleColumn(c) }
             />
+            <label>{ c }</label>
           </div>
         );
       }
     );
 
-
-
     return (
       <div className={ `page ${this.props.bem()}` }>
         <div className={ `page__header ${this.props.bem('header')}` }>
+          <NavLink
+            routeName='projects'
+            className={ this.props.bem('header__back-link') }>
+            { '«' }
+          </NavLink>
           <h1 className={ `page__title ${this.props.bem('title')}` }>
-            <NavLink routeName='projects'>
-              { '<' }
-            </NavLink>
             { this.props.project.name }
-            { visibleColumnsCheckboxes }
           </h1>
+          <div className={ this.props.bem('visible-columns') }>
+            { visibleColumnsCheckboxes }
+          </div>
         </div>
         <Project
           {...this.props.project}

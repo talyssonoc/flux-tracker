@@ -24,11 +24,15 @@ class Project extends React.Component {
 
     columns = this.props.visibleColumns.map((column) => {
       return (
-        <Column
-          name={ column }
-          stories={ columnsData[column] }
+        <div
           key={ `column-${column}` }
-        />
+          className={ this.props.bem('column-container') }
+        >
+          <Column
+            name={ column }
+            stories={ columnsData[column] }
+          />
+        </div>
       );
     });
 

@@ -9,9 +9,13 @@ class Column extends React.Component {
   render() {
     var stories = this.props.stories.map((story) => {
       return (
-        <li key={ `story-${story.id}`} >
+        <li
+          key={ `story-${story.id}`}
+          className={ this.props.bem('story-list__item') }
+        >
           <Story
             {...story}
+            className={ this.props.bem('story') }
           />
         </li>
       );
@@ -19,14 +23,16 @@ class Column extends React.Component {
 
     return (
       <div className={ this.props.bem() }>
-        <h2
-          className={ this.props.bem('name') }
-        >
-          { this.props.name }
-        </h2>
-        <ul>
-          { stories }
-        </ul>
+        <div className={ this.props.bem('content') }>
+          <h2
+            className={ this.props.bem('name') }
+          >
+            { this.props.name }
+          </h2>
+          <ul className={ this.props.bem('story-list') }>
+            { stories }
+          </ul>
+        </div>
       </div>
     );
   }

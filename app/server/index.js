@@ -44,6 +44,7 @@ server.use(bodyParser.json());
 server.use(cookieParser());
 
 server.use('/public', express.static(path.join(__dirname, '../../build')));
+server.use('/public', express.static(path.join(__dirname, '../../public')));
 
 server.use(fetchr.getXhrPath(), fetchr.getMiddleware());
 
