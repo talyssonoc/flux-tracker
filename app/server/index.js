@@ -7,6 +7,7 @@ import debugLib from 'debug';
 
 import express from 'express';
 import low from 'lowdb';
+import underscoreDb from 'underscore-db';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import csurf from 'csurf';
@@ -33,6 +34,7 @@ const htmlComponent = React.createFactory(HtmlComponent);
 const debug = debugLib('flux-tracker');
 
 global.db = low(path.join(__dirname, '../../database/db.json'), { autosave: false });
+global.db._.mixin(underscoreDb);
 
 // Server stuff
 

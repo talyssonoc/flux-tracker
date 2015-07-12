@@ -13,7 +13,6 @@
       text-decoration: none;
       font-weight: bold;
       font-size: 30px;
-      margin-right: 25px;
     }
   }
 
@@ -24,5 +23,10 @@
       display: inline;
 
     }
+  }
+
+  &__add-story {
+    float: left;
+    margin-top: 7px;
   }
 }

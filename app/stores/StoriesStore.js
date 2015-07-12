@@ -1,5 +1,7 @@
 import BaseStore from 'fluxible/addons/BaseStore';
 
+import storyConstants from 'app/constants/story';
+
 class StoriesStore extends BaseStore {
   constructor(dispatcher) {
     super(dispatcher);
@@ -21,7 +23,7 @@ class StoriesStore extends BaseStore {
       finished: ['Deliver'],
       delivered: ['Accept', 'Reject'],
       accepted: [],
-      rejected: ['Reset']
+      rejected: ['Restart']
     };
 
     this.stories = [];
@@ -61,6 +63,18 @@ class StoriesStore extends BaseStore {
     this.emitChange();
   }
 
+  handleAddStory(payload) {
+    var story = payload.story;
+
+    story.state = 'unstarted';
+    story.column = 'icebox';
+    story.actions = this.getActions(story);
+    story.type = 'feature';
+    this.stories.push(story);
+
+    this.emitChange();
+  }
+
   dehydrate() {
     return {
       stories: this.stories
@@ -75,8 +89,9 @@ class StoriesStore extends BaseStore {
 StoriesStore.storeName = 'StoriesStore';
 
 StoriesStore.handlers = {
-  RECEIVE_STORIES: 'handleReceiveStories',
-  CHANGE_STORY_STATE: 'handleStoryStateChange'
+  [storyConstants.RECEIVE_STORIES]:     'handleReceiveStories',
+  [storyConstants.CHANGE_STORY_STATE]:  'handleStoryStateChange',
+  [storyConstants.ADD_STORY]:           'handleAddStory'
 };
 
 export default StoriesStore;

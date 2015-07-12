@@ -15,6 +15,12 @@ export default function createService(collection, overrides = {}) {
       callback(null, data);
     },
 
+    create: function(req, resource, params, body, config, callback) {
+      let data = db(collection).insert(body);
+
+      callback(null, data);
+    },
+
     update: function(req, resource, params, body, config, callback) {
       var data = db(collection).chain().find(params);
 

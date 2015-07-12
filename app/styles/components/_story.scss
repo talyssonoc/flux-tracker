@@ -6,19 +6,19 @@
   background-position: 1px 1px;
 
   &--feature {
-    background-image: url('/public/story-icons/feature.png');
+    background-image: url('/public/img/story-icons/feature.png');
   }
 
   &--chore {
-    background-image: url('/public/story-icons/chore.png');
+    background-image: url('/public/img/story-icons/chore.png');
   }
 
   &--bug {
-    background-image: url('/public/story-icons/bug.png');
+    background-image: url('/public/img/story-icons/bug.png');
   }
 
   &--release {
-    background-image: url('/public/story-icons/release.png');
+    background-image: url('/public/img/story-icons/release.png');
   }
 
   &__title {
@@ -59,8 +59,8 @@
         background-color: $color-reject;
       }
 
-      &--reset {
-        background-color: $color-reset;
+      &--restart {
+        background-color: $color-restart;
       }
 
       &--deliver {

@@ -3,7 +3,7 @@ import Finish from './Finish';
 import Deliver from './Deliver';
 import Accept from './Accept';
 import Reject from './Reject';
-import Reset from './Reset';
+import Restart from './Restart';
 
 export default {
   Start,
@@ -11,5 +11,5 @@ export default {
   Deliver,
   Accept,
   Reject,
-  Reset
+  Restart
 };

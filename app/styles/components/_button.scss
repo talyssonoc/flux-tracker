@@ -1,0 +1,21 @@
+.button {
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 3px 6px;
+  font-size: 14px;
+
+  &--black {
+    color: #fff;
+    background-color: #000;
+  }
+
+  &--small {
+    font-size: 11px;
+  }
+
+  &--big {
+    font-size: 20px;
+  }
+
+}

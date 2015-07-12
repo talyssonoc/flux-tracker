@@ -5,6 +5,7 @@ import { NavLink } from 'fluxible-router';
 import _ from 'lodash';
 
 import toggleColumn from 'app/actions/toggleColumn';
+import addStory from 'app/actions/addStory';
 import ProjectsStore from 'app/stores/ProjectsStore';
 import Project from 'app/components/project/Project';
 
@@ -16,6 +17,15 @@ class Show extends React.Component {
   toggleColumn(column) {
     this.context.executeAction(toggleColumn, {
       column: column
+    });
+  }
+
+  addStory() {
+    var title = prompt('Name:');
+
+    this.context.executeAction(addStory, {
+      title: title,
+      project_id: this.props.project.id
     });
   }
 
@@ -56,6 +66,15 @@ class Show extends React.Component {
           <h1 className={ `page__title ${this.props.bem('title')}` }>
             { this.props.project.name }
           </h1>
+          <div className={ `${this.props.bem('add-story')}` }>
+            <button
+              type="button"
+              className="button button--black"
+              onClick={ () => this.addStory() }
+            >
+              + Add story
+            </button>
+          </div>
           <div className={ this.props.bem('visible-columns') }>
             { visibleColumnsCheckboxes }
           </div>

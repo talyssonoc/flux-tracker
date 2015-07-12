@@ -1,5 +1,7 @@
 import BaseStore from 'fluxible/addons/BaseStore';
 
+import projectConstants from 'app/constants/project';
+
 class ProjectsStore extends BaseStore {
   constructor(dispatcher) {
     super(dispatcher);
@@ -63,9 +65,9 @@ class ProjectsStore extends BaseStore {
 ProjectsStore.storeName = 'ProjectsStore';
 
 ProjectsStore.handlers = {
-    'RECEIVE_PROJECTS': 'handleReceiveProjects',
-    'RECEIVE_CURRENT_PROJECT': 'handleReceiveProject',
-    'TOGGLE_COLUMN': 'handleToggleColumn'
+    [projectConstants.RECEIVE_PROJECTS]:        'handleReceiveProjects',
+    [projectConstants.RECEIVE_CURRENT_PROJECT]: 'handleReceiveProject',
+    [projectConstants.TOGGLE_COLUMN]:           'handleToggleColumn'
 };
 
 export default ProjectsStore;

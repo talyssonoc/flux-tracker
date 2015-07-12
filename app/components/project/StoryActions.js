@@ -21,7 +21,11 @@ class StoryActions extends React.Component {
 
     var actions = this.props.actions.map((action) => {
       var Action = storyActions[action];
-      return <Action storyId={ this.props.storyId }/>;
+      return (
+        <Action
+          storyId={ this.props.storyId }
+          key={ `story-action-${action}` }
+        />);
     });
 
     return (
