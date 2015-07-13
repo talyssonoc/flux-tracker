@@ -23,7 +23,7 @@ import React from 'react';
 import app from 'app/app';
 
 import registerServices from 'app/helpers/registerServices';
-import HtmlComponent from 'app/components/Html';
+import HtmlComponent from './Html';
 
 app.root = path.resolve(__dirname, '..');
 

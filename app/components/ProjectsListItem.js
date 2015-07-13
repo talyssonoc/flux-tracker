@@ -3,7 +3,7 @@ import { NavLink } from 'fluxible-router';
 
 import B from 'app/helpers/bem';
 
-class ProjectItem extends React.Component {
+class ProjectsListItem extends React.Component {
   render() {
     return (
       <div className={ `${this.props.bem()} ${this.props.className}` }>
@@ -18,9 +18,9 @@ class ProjectItem extends React.Component {
   }
 }
 
-ProjectItem.defaultProps = {
+ProjectsListItem.defaultProps = {
   bem: B.with('project-item'),
   className: ''
 };
 
-export default ProjectItem;
+export default ProjectsListItem;

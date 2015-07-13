@@ -2,7 +2,7 @@ import React from 'react';
 import connectToStores from 'fluxible/addons/connectToStores';
 import { NavLink } from 'fluxible-router';
 
-import ProjectItem from 'app/components/project/ProjectItem';
+import ProjectsListItem from 'app/components/ProjectsListItem';
 import ProjectsStore from 'app/stores/ProjectsStore';
 
 import B from 'app/helpers/bem';
@@ -20,7 +20,7 @@ class Index extends React.Component {
             key={"project-" + project.id}
             className={ this.props.bem('list__item') }
           >
-            <ProjectItem project={ project } className={ this.props.bem('project') }/>
+            <ProjectsListItem project={ project } className={ this.props.bem('project') }/>
           </li>
         );
       });

@@ -1,4 +1,4 @@
-import storyConstants from 'app/constants/story';
+import projectConstants from 'app/constants/project';
 
 export default function addStory(context, payload, done) {
 
@@ -15,7 +15,7 @@ export default function addStory(context, payload, done) {
         console.error(err);
       }
 
-      context.dispatch(storyConstants.ADD_STORY, {
+      context.dispatch(projectConstants.ADD_STORY, {
         story: story
       });
 

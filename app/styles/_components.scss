@@ -1,10 +1,11 @@
 // React components
 
-@import 'components/project',
-        'components/story',
-        'components/project-item';
+@import 'components/page',
+        'components/project',
+        'components/story';
 
 
 // Other components
 
-@import 'components/button';
+@import 'components/button',
+        'components/grid';

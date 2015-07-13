@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ApplicationStore from '../stores/ApplicationStore';
+import ApplicationStore from 'app/stores/ApplicationStore';
 
 class Html extends React.Component {
   render() {

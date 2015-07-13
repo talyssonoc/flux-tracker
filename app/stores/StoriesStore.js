@@ -1,6 +1,9 @@
 import BaseStore from 'fluxible/addons/BaseStore';
 
+import projectConstants from 'app/constants/project';
 import storyConstants from 'app/constants/story';
+
+import _ from 'lodash';
 
 class StoriesStore extends BaseStore {
   constructor(dispatcher) {
@@ -75,6 +78,14 @@ class StoriesStore extends BaseStore {
     this.emitChange();
   }
 
+  handleDeleteStory(payload) {
+    _.remove(this.stories, {
+      id: payload.storyId
+    });
+
+    this.emitChange();
+  }
+
   dehydrate() {
     return {
       stories: this.stories
@@ -91,7 +102,8 @@ StoriesStore.storeName = 'StoriesStore';
 StoriesStore.handlers = {
   [storyConstants.RECEIVE_STORIES]:     'handleReceiveStories',
   [storyConstants.CHANGE_STORY_STATE]:  'handleStoryStateChange',
-  [storyConstants.ADD_STORY]:           'handleAddStory'
+  [projectConstants.ADD_STORY]:         'handleAddStory',
+  [projectConstants.DELETE_STORY]:      'handleDeleteStory'
 };
 
 export default StoriesStore;

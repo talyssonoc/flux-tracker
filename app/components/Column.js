@@ -14,7 +14,7 @@ class Column extends React.Component {
           className={ this.props.bem('story-list__item') }
         >
           <Story
-            {...story}
+            story={ story }
             className={ this.props.bem('story') }
           />
         </li>

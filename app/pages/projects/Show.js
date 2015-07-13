@@ -7,7 +7,7 @@ import _ from 'lodash';
 import toggleColumn from 'app/actions/toggleColumn';
 import addStory from 'app/actions/addStory';
 import ProjectsStore from 'app/stores/ProjectsStore';
-import Project from 'app/components/project/Project';
+import Project from 'app/components/Project';
 
 import B from 'app/helpers/bem';
 import contextTypes from 'app/helpers/contextTypes';

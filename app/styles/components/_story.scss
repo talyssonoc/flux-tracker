@@ -5,6 +5,11 @@
   background-repeat: no-repeat;
   background-position: 1px 1px;
 
+  &--open {
+    padding-left: 0;
+    background-image: none;
+  }
+
   &--feature {
     background-image: url('/public/img/story-icons/feature.png');
   }

@@ -8,14 +8,6 @@ import B from 'app/helpers/bem';
 import contextTypes from 'app/helpers/contextTypes';
 
 class StoryActions extends React.Component {
-  storyStateChangeHandler() {
-    var newState = React.findDOMNode(this.refs.stateSelect).value;
-
-    this.context.executeAction(changeStoryState, {
-      storyId: this.props.storyId,
-      newState: newState
-    });
-  }
 
   render() {
 
