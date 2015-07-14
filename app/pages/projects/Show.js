@@ -45,10 +45,8 @@ class Show extends React.Component {
 
   render() {
     var visibleColumns = [];
-    var columnValue;
 
-    var visibleColumnsCheckboxes = _.map(this.props.visibleColumns,
-      (columnValue, c) => {
+    var visibleColumnsCheckboxes = _.map(this.props.visibleColumns, (columnValue, c) => {
         if(columnValue) {
           visibleColumns.push(c);
         }

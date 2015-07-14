@@ -17,19 +17,20 @@ class StoryActions extends React.Component {
   static contextTypes = contextTypes()
 
   render() {
-
-    var actions = this.props.actions.map((action) => {
-      var Action = storyActions[action];
-      return (
-        <Action
-          storyId={ this.props.storyId }
-          key={ `story-action-${action}` }
-        />);
-    });
-
     return (
       <div className={ `${this.props.className} ${this.props.bem()}` }>
-        { actions }
+        {
+          this.props.actions.map((action) => {
+            var Action = storyActions[action];
+
+            return (
+              <Action
+                storyId={ this.props.storyId }
+                key={ `story-action-${action}` }
+              />
+            );
+          })
+        }
       </div>
     );
   }

@@ -24,7 +24,6 @@ class Project extends React.Component {
 
   render() {
     var columnsData = {};
-    var columns;
 
     this.props.visibleColumns.forEach((column) => {
       columnsData[column] = [];
@@ -36,23 +35,21 @@ class Project extends React.Component {
       }
     });
 
-    columns = this.props.visibleColumns.map((column) => {
-      return (
-        <div
-          key={ `column-${column}` }
-          className={ this.props.bem('column-container') }
-        >
-          <Column
-            name={ column }
-            stories={ columnsData[column] }
-          />
-        </div>
-      );
-    });
-
     return (
       <div className={ `${this.props.bem()} ${this.props.className}` }>
-        { columns }
+        {
+          this.props.visibleColumns.map((column) =>
+            <div
+              key={ `column-${column}` }
+              className={ this.props.bem('column-container') }
+            >
+              <Column
+                name={ column }
+                stories={ columnsData[column] }
+              />
+            </div>
+          )
+        }
       </div>
     );
   }

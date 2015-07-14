@@ -55,34 +55,7 @@ class OpenStoryContent extends React.Component {
   }
 
   render() {
-
-    var types = storyConstants.TYPES
-      .map((type) => {
-      return (
-        <option
-          value={ type }
-          key={ `type-${type}` }
-        >
-          { type }
-        </option>
-      );
-    });
-
-    var states = storyConstants.STATES
-    .filter((type) => type !== 'icebox')
-    .map((state) => {
-      return (
-        <option
-          value={ state }
-          key={ `state-${state}` }
-        >
-          { state }
-        </option>
-      );
-    });
-
     return (
-
       <div className={ this.props.bem('content') }>
         <div className="grid">
           <div className="grid__row">
@@ -111,7 +84,16 @@ class OpenStoryContent extends React.Component {
                 className={ this.props.bem('select') }
                 valueLink={ this.linkState('type') }
               >
-                { types }
+                {
+                  storyConstants.TYPES.map((type) =>
+                    <option
+                      value={ type }
+                      key={ `type-${type}` }
+                    >
+                      { type }
+                    </option>
+                  )
+                }
               </select>
             </div>
           </div>
@@ -129,7 +111,18 @@ class OpenStoryContent extends React.Component {
                 className={ this.props.bem('select') }
                 valueLink={ this.linkState('state') }
               >
-                { states }
+                {
+                  storyConstants.STATES
+                  .filter((type) => type !== 'icebox')
+                  .map((state) =>
+                      <option
+                        value={ state }
+                        key={ `state-${state}` }
+                      >
+                        { state }
+                      </option>
+                  )
+                }
               </select>
             </div>
           </div>

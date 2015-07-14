@@ -12,20 +12,6 @@ class Column extends React.Component {
   }
 
   render() {
-    var stories = this.props.stories.map((story) => {
-      return (
-        <li
-          key={ `story-${story.id}`}
-          className={ this.props.bem('story-list__item') }
-        >
-          <Story
-            story={ story }
-            className={ this.props.bem('story') }
-          />
-        </li>
-      );
-    });
-
     return (
       <div className={ this.props.bem() }>
         <div className={ this.props.bem('content') }>
@@ -35,7 +21,19 @@ class Column extends React.Component {
             { this.props.name }
           </h2>
           <ul className={ this.props.bem('story-list') }>
-            { stories }
+            {
+              this.props.stories.map((story) =>
+                <li
+                  key={ `story-${story.id}`}
+                  className={ this.props.bem('story-list__item') }
+                >
+                  <Story
+                    story={ story }
+                    className={ this.props.bem('story') }
+                  />
+                </li>
+              )
+            }
           </ul>
         </div>
       </div>
