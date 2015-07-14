@@ -1,47 +1,65 @@
 .story {
+  $story: &;
+
   @include clearfix;
+
   width: 100%;
-  padding-left: 25px;
   background-repeat: no-repeat;
-  background-position: 1px 1px;
+  background-position: 4px 8px;
 
   &--open {
-    padding-left: 0;
-    background-image: none;
   }
 
-  &--feature {
-    background-image: url('/public/img/story-icons/feature.png');
-  }
+  &--closed {
+    cursor: move;
 
-  &--chore {
-    background-image: url('/public/img/story-icons/chore.png');
-  }
+    #{$story}__content {
+      padding-left: 25px;
+    }
 
-  &--bug {
-    background-image: url('/public/img/story-icons/bug.png');
-  }
+    &#{$story}--feature {
+      background-image: url('/public/img/story-icons/feature.png');
+    }
 
-  &--release {
-    background-image: url('/public/img/story-icons/release.png');
+    &#{$story}--chore {
+      background-image: url('/public/img/story-icons/chore.png');
+    }
+
+    &#{$story}--bug {
+      background-image: url('/public/img/story-icons/bug.png');
+    }
+
+    &#{$story}--release {
+      background-image: url('/public/img/story-icons/release.png');
+    }
   }
 
   &__title {
     margin: 0;
     float: left;
+    font-family: helvetica;
     font-size: 16px;
     font-weight: normal;
+  }
+
+  &__content {
+    @include clearfix;
+    padding: 7px;
   }
 
   &__actions {
     float: right;
 
     &__button {
-      border: none;
+      width: 55px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      font-family: helvetica;
+      font-size: 11px;
+      font-weight: bold;
       cursor: pointer;
       color: #fff;
       border-radius: 3px;
-      padding: 3px 4px;
+      padding: 2px 4px;
       margin-right: 5px;
 
       &:last-child {
@@ -72,5 +90,22 @@
         background-color: $color-deliver;
       }
     }
+  }
+
+  &__textarea,
+  &__select {
+    width: 100%;
+    font-size: 16px;
+    border-radius: 3px;
+    padding: 2px 3px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+  &__textarea {
+    resize: none;
+  }
+
+  &__select {
+
   }
 }

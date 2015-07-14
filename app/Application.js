@@ -2,8 +2,7 @@
 
 import React from 'react';
 import ApplicationStore from 'app/stores/ApplicationStore';
-import provideContext from 'fluxible/addons/provideContext';
-import connectToStores from 'fluxible/addons/connectToStores';
+import { connectToStores, provideContext } from 'fluxible-addons-react';
 import { handleHistory } from 'fluxible-router';
 
 class Application extends React.Component {
@@ -24,8 +23,8 @@ class Application extends React.Component {
 export default handleHistory(provideContext(connectToStores(
   Application,
   [ ApplicationStore ],
-  function (stores, props) {
-    var appStore = stores.ApplicationStore;
+  function (context, props) {
+    var appStore = context.getStore(ApplicationStore);
     return {
       currentPageName: appStore.getCurrentPageName(),
       pageTitle: appStore.getPageTitle(),

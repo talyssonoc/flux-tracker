@@ -5,9 +5,11 @@ import React from 'react';
 
 import B from 'app/helpers/bem';
 
-var StoryAction = {
+var StoryActionMixin = {
   instanceMixin: {
-    changeStateTo: function changeStateTo(newState) {
+    changeStateTo: function changeStateTo(event, newState) {
+      event.stopPropagation();
+
       this.context.executeAction(changeStoryState, {
         storyId: this.props.storyId,
         newState: newState
@@ -17,7 +19,7 @@ var StoryAction = {
     createActionButton: function createActionButton(text, type, toState) {
       return (
         <button
-          onClick={ () => this.changeStateTo(toState) }
+          onClick={ (e) => this.changeStateTo(e, toState) }
           className={ this.props.bem({ [type]: true }) }>
           { text }
         </button>
@@ -37,4 +39,4 @@ var StoryAction = {
   }
 };
 
-export default StoryAction;
+export default StoryActionMixin;

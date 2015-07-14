@@ -1,5 +1,5 @@
 import React from 'react';
-import connectToStores from 'fluxible/addons/connectToStores';
+import { connectToStores } from 'fluxible-addons-react';
 import { NavLink } from 'fluxible-router';
 
 import ProjectsListItem from 'app/components/ProjectsListItem';
@@ -46,9 +46,11 @@ Index.defaultProps = {
 export default connectToStores(
   Index,
   [ ProjectsStore ],
-  function(stores, props) {
+  function(context, props) {
+    var projectsStore = context.getStore(ProjectsStore);
+
     return {
-      projects: stores.ProjectsStore.getProjects()
+      projects: projectsStore.getProjects()
     };
   }
 );

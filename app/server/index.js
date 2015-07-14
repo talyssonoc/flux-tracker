@@ -11,12 +11,13 @@ import underscoreDb from 'underscore-db';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import csurf from 'csurf';
+import serialize from 'serialize-javascript';
 
 // Flux/React imports
 
-import serialize from 'serialize-javascript';
-import { navigateAction } from 'fluxible-router';
 import React from 'react';
+import { navigateAction } from 'fluxible-router';
+import { createElementWithContext } from 'fluxible-addons-react';
 
 // App imports
 
@@ -73,7 +74,7 @@ server.use((req, res, next) => {
     const html = React.renderToStaticMarkup(htmlComponent({
       context: context.getComponentContext(),
       state: exposed,
-      markup: React.renderToString(context.createElement())
+      markup: React.renderToString(createElementWithContext(context))
     }));
 
     debug('Sending markup');

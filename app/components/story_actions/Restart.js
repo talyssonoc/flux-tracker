@@ -2,7 +2,7 @@ import React from 'react';
 
 import ReactMixin from 'react-mixin';
 
-import StoryAction from 'app/mixins/StoryAction';
+import StoryActionMixin from 'app/mixins/StoryActionMixin';
 
 class Restart extends React.Component {
   render() {
@@ -10,7 +10,7 @@ class Restart extends React.Component {
   }
 }
 
-ReactMixin(Restart.prototype, StoryAction.instanceMixin);
-ReactMixin.onClass(Restart, StoryAction.classMixin);
+ReactMixin(Restart.prototype, StoryActionMixin.instanceMixin);
+ReactMixin.onClass(Restart, StoryActionMixin.classMixin);
 
 export default Restart;

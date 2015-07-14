@@ -1,7 +1,10 @@
 /*global document, window */
 
 import React from 'react';
+import { createElementWithContext } from 'fluxible-addons-react';
+
 import debug from 'debug';
+
 import app from 'app/app';
 
 const debugClient = debug('flux-tracker');
@@ -24,7 +27,7 @@ app.rehydrate(dehydratedState, function (err, context) {
     const mountNode = document.getElementById('app');
 
     debugClient('React Rendering');
-    React.render(context.createElement(), mountNode, function () {
+    React.render(createElementWithContext(context), mountNode, function () {
         debugClient('React Rendered');
     });
 });

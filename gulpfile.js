@@ -49,7 +49,9 @@ gulp.task('build-cli-dev', ['webpack:dev'], function() {
 
 gulp.task('sass', ['clean:css'], function() {
   gulp.src('./app/styles/application.scss')
-      .pipe(sass().on('error', sass.logError))
+      .pipe(sass({
+        includePaths: [path.resolve('./node_modules')]
+      }).on('error', sass.logError))
       .pipe(gulp.dest('./build/css'))
 });
 

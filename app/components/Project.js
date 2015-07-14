@@ -1,5 +1,5 @@
 import React from 'react';
-import connectToStores from 'fluxible/addons/connectToStores';
+import { connectToStores } from 'fluxible-addons-react';
 
 import StoriesStore from 'app/stores/StoriesStore';
 import Column from './Column';
@@ -54,9 +54,11 @@ Project.defaultProps = {
 export default connectToStores(
   Project,
   [ StoriesStore ],
-  function(store, props) {
+  function(context, props) {
+    var storiesStore = context.getStore(StoriesStore);
+
     return {
-      stories: store.StoriesStore.getStories()
+      stories: storiesStore.getStories()
     };
   }
 );

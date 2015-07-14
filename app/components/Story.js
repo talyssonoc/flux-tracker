@@ -28,12 +28,16 @@ class Story extends React.Component {
     var modifiers = {};
 
     modifiers[this.props.story.type] = true;
+    modifiers[this.props.story.state] = true;
     modifiers.open = this.state.open;
+    modifiers.closed = !this.state.open;
 
     var StoryContent = this.state.open ? OpenStoryContent : ClosedStoryContent;
 
     return (
-      <div className={ `${this.props.className} ${this.props.bem(modifiers)}` }>
+      <div
+        className={ `${this.props.className} ${this.props.bem(modifiers)}` }
+      >
         <StoryContent
           toggleHandler={ () => this.toggleOpenClosed() }
           story={ this.props.story }

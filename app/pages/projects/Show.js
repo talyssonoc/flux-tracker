@@ -1,5 +1,5 @@
 import React from 'react';
-import connectToStores from 'fluxible/addons/connectToStores';
+import { connectToStores } from 'fluxible-addons-react';
 import { NavLink } from 'fluxible-router';
 
 import _ from 'lodash';
@@ -99,10 +99,12 @@ Show.contextTypes = contextTypes();
 export default connectToStores(
   Show,
   [ ProjectsStore ],
-  function(stores, props) {
+  function(context, props) {
+    var projectsStore = context.getStore(ProjectsStore);
+
     return {
-      project: stores.ProjectsStore.getCurrentProject(),
-      visibleColumns: stores.ProjectsStore.getVisibleColumns()
+      project: projectsStore.getCurrentProject(),
+      visibleColumns: projectsStore.getVisibleColumns()
     };
   }
 );

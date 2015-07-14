@@ -1,10 +1,12 @@
 import React from 'react';
-import connectToStores from 'fluxible/addons/connectToStores';
 import ReactMixin from 'react-mixin';
 
+import TextArea from 'react-textarea-autosize';
+
 import deleteStory from 'app/actions/deleteStory';
-import StoryActions from './StoryActions';
-import StoriesStore from 'app/stores/StoriesStore';
+import updateStory from 'app/actions/updateStory';
+import keyCodes from 'app/constants/keyCodes';
+import storyConstants from 'app/constants/story';
 
 import _ from 'lodash';
 import B from 'app/helpers/bem';
@@ -19,6 +21,10 @@ class OpenStoryContent extends React.Component {
   }
 
   saveStory() {
+    this.context.executeAction(updateStory, {
+      story: this.state
+    });
+
     this.props.toggleHandler();
   }
 
@@ -30,14 +36,99 @@ class OpenStoryContent extends React.Component {
     }
   }
 
+  keyDownHandler(event) {
+    if(event.keyCode === keyCodes.ENTER) {
+      this.saveStory();
+      event.stopPropagation();
+    }
+  }
+
+  componentDidMount() {
+    React.findDOMNode(this.refs.title).focus();
+  }
+
   render() {
+
+    var types = storyConstants.TYPES
+      .map((type) => {
+      return (
+        <option
+          value={ type }
+          key={ `type-${type}` }
+        >
+          { type }
+        </option>
+      );
+    });
+
+    var states = storyConstants.STATES
+    .filter((type) => type !== 'icebox')
+    .map((state) => {
+      return (
+        <option
+          value={ state }
+          key={ `state-${state}` }
+        >
+          { state }
+        </option>
+      );
+    });
 
     return (
 
       <div className={ this.props.bem('content') }>
         <div className="grid">
           <div className="grid__row">
+            <div className="grid__col">
+              <TextArea
+                minRows={ 1 }
+                maxRows={ 5 }
+                className={ this.props.bem('textarea') }
+                valueLink={ this.linkState('title') }
+                onKeyDownCapture={ (e) => this.keyDownHandler(e) }
+                ref="title"
+              />
+            </div>
+          </div>
+
+          <div className="grid__row">
             <div className="grid__col grid__col-2">
+              <label
+                className={ this.props.bem('label') }
+              >
+                Type
+              </label>
+            </div>
+            <div className="grid__col grid__col-10">
+              <select
+                className={ this.props.bem('select') }
+                valueLink={ this.linkState('type') }
+              >
+                { types }
+              </select>
+            </div>
+          </div>
+
+          <div className="grid__row">
+            <div className="grid__col grid__col-2">
+              <label
+                className={ this.props.bem('label') }
+              >
+                State
+              </label>
+            </div>
+            <div className="grid__col grid__col-10">
+              <select
+                className={ this.props.bem('select') }
+                valueLink={ this.linkState('state') }
+              >
+                { states }
+              </select>
+            </div>
+          </div>
+
+          <div className="grid__row">
+            <div className="grid__col grid__col-3">
               <button
                 onClick={ () => this.saveStory() }
                 className="button button--black"
@@ -45,7 +136,7 @@ class OpenStoryContent extends React.Component {
                 Save
               </button>
             </div>
-            <div className="grid__col grid__col-2">
+            <div className="grid__col grid__col-3">
               <button
                 onClick={ () => this.deleteStory() }
                 className="button button--black"
@@ -53,40 +144,13 @@ class OpenStoryContent extends React.Component {
                 Delete
               </button>
             </div>
-            <div className="grid__col grid__col-2">
+            <div className="grid__col grid__col-3">
               <button
                 onClick={ () => this.props.toggleHandler() }
                 className="button button--black"
               >
                 Cancel
               </button>
-            </div>
-          </div>
-
-          <div className="grid__row">
-            <div className="grid__col">
-              <input
-                type="text"
-                valueLink={ this.linkState('title') }
-              />
-            </div>
-          </div>
-
-          <div className="grid__row">
-            <div className="grid__col">
-              <input
-                type="text"
-                valueLink={ this.linkState('type') }
-              />
-            </div>
-          </div>
-
-          <div className="grid__row">
-            <div className="grid__col">
-              <input
-                type="text"
-                valueLink={ this.linkState('state') }
-              />
             </div>
           </div>
         </div>

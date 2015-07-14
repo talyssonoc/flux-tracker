@@ -2,7 +2,7 @@ import React from 'react';
 
 import ReactMixin from 'react-mixin';
 
-import StoryAction from 'app/mixins/StoryAction';
+import StoryActionMixin from 'app/mixins/StoryActionMixin';
 
 class Accept extends React.Component {
   render() {
@@ -10,7 +10,7 @@ class Accept extends React.Component {
   }
 }
 
-ReactMixin(Accept.prototype, StoryAction.instanceMixin);
-ReactMixin.onClass(Accept, StoryAction.classMixin);
+ReactMixin(Accept.prototype, StoryActionMixin.instanceMixin);
+ReactMixin.onClass(Accept, StoryActionMixin.classMixin);
 
 export default Accept;

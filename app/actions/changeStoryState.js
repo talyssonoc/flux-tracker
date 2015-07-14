@@ -1,6 +1,7 @@
 import storyConstants from 'app/constants/story';
 
 export default function changeStoryState(context, payload, done) {
+
   context.service.update(
     'story',
     { id: payload.storyId },

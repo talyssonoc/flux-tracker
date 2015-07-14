@@ -9,15 +9,7 @@ class StoriesStore extends BaseStore {
   constructor(dispatcher) {
     super(dispatcher);
 
-    this.columnsForStates = {
-      icebox: 'icebox',
-      unstarted: 'backlog',
-      started: 'current',
-      finished: 'current',
-      delivered: 'current',
-      accepted: 'done',
-      rejected: 'current'
-    };
+    this.columnsForStates = storyConstants.STATE_COLUMNS;
 
     this.actionsForStates = {
       icebox: ['Start'],
@@ -86,6 +78,16 @@ class StoriesStore extends BaseStore {
     this.emitChange();
   }
 
+  handleUpdateStory(payload) {
+    var story = this.stories.filter(story => story.id === payload.story.id)[0];
+
+    _.assign(story, payload.story);
+    story.actions = this.getActions(story);
+    story.column = this.getColumn(story);
+
+    this.emitChange();
+  }
+
   dehydrate() {
     return {
       stories: this.stories
@@ -103,7 +105,8 @@ StoriesStore.handlers = {
   [storyConstants.RECEIVE_STORIES]:     'handleReceiveStories',
   [storyConstants.CHANGE_STORY_STATE]:  'handleStoryStateChange',
   [projectConstants.ADD_STORY]:         'handleAddStory',
-  [projectConstants.DELETE_STORY]:      'handleDeleteStory'
+  [projectConstants.DELETE_STORY]:      'handleDeleteStory',
+  [projectConstants.UPDATE_STORY]:      'handleUpdateStory'
 };
 
 export default StoriesStore;
