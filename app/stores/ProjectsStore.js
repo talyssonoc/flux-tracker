@@ -4,6 +4,15 @@ import projectConstants from 'app/constants/project';
 import columnConstants from 'app/constants/column';
 
 class ProjectsStore extends BaseStore {
+
+  static storeName = 'ProjectsStore'
+
+  static handlers = {
+    [projectConstants.RECEIVE_PROJECTS]:        'handleReceiveProjects',
+    [projectConstants.RECEIVE_CURRENT_PROJECT]: 'handleReceiveProject',
+    [columnConstants.TOGGLE_COLUMN]:            'handleToggleColumn'
+  }
+
   constructor(dispatcher) {
     super(dispatcher);
 
@@ -62,13 +71,5 @@ class ProjectsStore extends BaseStore {
     this.visibleColumns = state.visibleColumns
   }
 }
-
-ProjectsStore.storeName = 'ProjectsStore';
-
-ProjectsStore.handlers = {
-    [projectConstants.RECEIVE_PROJECTS]:        'handleReceiveProjects',
-    [projectConstants.RECEIVE_CURRENT_PROJECT]: 'handleReceiveProject',
-    [columnConstants.TOGGLE_COLUMN]:           'handleToggleColumn'
-};
 
 export default ProjectsStore;

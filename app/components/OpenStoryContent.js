@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactMixin from 'react-mixin';
+import mixin from 'react-mixin';
 
 import TextArea from 'react-textarea-autosize';
 
@@ -12,7 +12,14 @@ import _ from 'lodash';
 import B from 'app/helpers/bem';
 import contextTypes from 'app/helpers/contextTypes';
 
+@mixin.decorate(React.addons.LinkedStateMixin)
 class OpenStoryContent extends React.Component {
+
+  static contextTypes = contextTypes()
+
+  static defaultProps = {
+    className: ''
+  }
 
   constructor(props) {
     super();
@@ -158,13 +165,5 @@ class OpenStoryContent extends React.Component {
     );
   }
 }
-
-OpenStoryContent.defaultProps = {
-  className: ''
-};
-
-OpenStoryContent.contextTypes = contextTypes();
-
-ReactMixin(OpenStoryContent.prototype, React.addons.LinkedStateMixin);
 
 export default OpenStoryContent;

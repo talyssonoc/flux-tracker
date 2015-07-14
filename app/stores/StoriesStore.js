@@ -6,6 +6,17 @@ import storyConstants from 'app/constants/story';
 import _ from 'lodash';
 
 class StoriesStore extends BaseStore {
+
+  static storeName = 'StoriesStore'
+
+  static handlers = {
+    [storyConstants.RECEIVE_STORIES]:     'handleReceiveStories',
+    [storyConstants.CHANGE_STORY_STATE]:  'handleStoryStateChange',
+    [projectConstants.ADD_STORY]:         'handleAddStory',
+    [projectConstants.DELETE_STORY]:      'handleDeleteStory',
+    [projectConstants.UPDATE_STORY]:      'handleUpdateStory'
+  }
+
   constructor(dispatcher) {
     super(dispatcher);
 
@@ -98,15 +109,5 @@ class StoriesStore extends BaseStore {
     this.stories = state.stories;
   }
 }
-
-StoriesStore.storeName = 'StoriesStore';
-
-StoriesStore.handlers = {
-  [storyConstants.RECEIVE_STORIES]:     'handleReceiveStories',
-  [storyConstants.CHANGE_STORY_STATE]:  'handleStoryStateChange',
-  [projectConstants.ADD_STORY]:         'handleAddStory',
-  [projectConstants.DELETE_STORY]:      'handleDeleteStory',
-  [projectConstants.UPDATE_STORY]:      'handleUpdateStory'
-};
 
 export default StoriesStore;

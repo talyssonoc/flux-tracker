@@ -7,6 +7,11 @@ import B from 'app/helpers/bem';
 
 class Story extends React.Component {
 
+  static defaultProps = {
+    bem: B.with('story'),
+    className: ''
+  }
+
   constructor(props) {
     super();
 
@@ -45,10 +50,5 @@ class Story extends React.Component {
     );
   }
 }
-
-Story.defaultProps = {
-  bem: B.with('story'),
-  className: ''
-};
 
 export default Story;

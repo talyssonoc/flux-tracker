@@ -7,6 +7,10 @@ import B from 'app/helpers/bem';
 
 class ClosedStoryContent extends React.Component {
 
+  static defaultProps = {
+    className: ''
+  }
+
   render() {
 
     return (
@@ -25,9 +29,5 @@ class ClosedStoryContent extends React.Component {
     );
   }
 }
-
-ClosedStoryContent.defaultProps = {
-  className: ''
-};
 
 export default ClosedStoryContent;

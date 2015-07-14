@@ -3,6 +3,13 @@ import routesConfig from 'configs/routes';
 import RouteStore from './RouteStore';
 
 class ApplicationStore extends BaseStore {
+
+  static storeName = 'ApplicationStore'
+
+  static handlers = {
+    'NAVIGATE_SUCCESS': 'handlePageTitle'
+  }
+
   constructor(dispatcher) {
     super(dispatcher);
     this.currentPageName = null;
@@ -43,10 +50,5 @@ class ApplicationStore extends BaseStore {
     this.pageTitle = state.pageTitle;
   }
 }
-
-ApplicationStore.storeName = 'ApplicationStore';
-ApplicationStore.handlers = {
-  'NAVIGATE_SUCCESS': 'handlePageTitle'
-};
 
 export default ApplicationStore;

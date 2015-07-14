@@ -15,6 +15,13 @@ import B from 'app/helpers/bem';
 })
 class Project extends React.Component {
 
+  static defaultProps = {
+    bem: B.with('project'),
+    className: '',
+    visibleColumns: [],
+    stories: []
+  }
+
   render() {
     var columnsData = {};
     var columns;
@@ -50,12 +57,5 @@ class Project extends React.Component {
     );
   }
 }
-
-Project.defaultProps = {
-  bem: B.with('project'),
-  className: '',
-  visibleColumns: [],
-  stories: []
-};
 
 export default Project;

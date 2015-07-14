@@ -16,6 +16,10 @@ import B from 'app/helpers/bem';
 })
 class Index extends React.Component {
 
+  static defaultProps = {
+    bem: B.with('projects-index')
+  }
+
   render() {
 
     var projects = [];
@@ -45,9 +49,5 @@ class Index extends React.Component {
     );
   }
 }
-
-Index.defaultProps = {
-  bem: B.with('projects-index')
-};
 
 export default Index;

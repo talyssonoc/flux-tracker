@@ -8,6 +8,14 @@ import contextTypes from 'app/helpers/contextTypes';
 
 class StoryActions extends React.Component {
 
+  static defaultProps = {
+    bem: B.with('story__actions'),
+    className: '',
+    actions: []
+  }
+
+  static contextTypes = contextTypes()
+
   render() {
 
     var actions = this.props.actions.map((action) => {
@@ -26,13 +34,5 @@ class StoryActions extends React.Component {
     );
   }
 }
-
-StoryActions.defaultProps = {
-  bem: B.with('story__actions'),
-  className: '',
-  actions: []
-};
-
-StoryActions.contextTypes = contextTypes();
 
 export default StoryActions;

@@ -22,6 +22,12 @@ import contextTypes from 'app/helpers/contextTypes';
 })
 class Show extends React.Component {
 
+  static defaultProps = {
+    bem: B.with('projects-show')
+  }
+
+  static contextTypes = contextTypes()
+
   toggleColumn(column) {
     this.context.executeAction(toggleColumn, {
       column: column
@@ -97,11 +103,5 @@ class Show extends React.Component {
     );
   }
 }
-
-Show.defaultProps = {
-  bem: B.with('projects-show')
-};
-
-Show.contextTypes = contextTypes();
 
 export default Show;

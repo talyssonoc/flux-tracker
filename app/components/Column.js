@@ -6,6 +6,11 @@ import B from 'app/helpers/bem';
 
 class Column extends React.Component {
 
+  static defaultProps = {
+    bem: B.with('project__column'),
+    stories: []
+  }
+
   render() {
     var stories = this.props.stories.map((story) => {
       return (
@@ -37,10 +42,5 @@ class Column extends React.Component {
     );
   }
 }
-
-Column.defaultProps = {
-  bem: B.with('project__column'),
-  stories: []
-};
 
 export default Column;
