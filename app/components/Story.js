@@ -2,8 +2,6 @@ import React from 'react';
 
 import ClosedStoryContent  from './ClosedStoryContent';
 import OpenStoryContent  from './OpenStoryContent';
-import StoryActions from './StoryActions';
-import StoriesStore from 'app/stores/StoriesStore';
 
 import B from 'app/helpers/bem';
 
@@ -41,6 +39,7 @@ class Story extends React.Component {
         <StoryContent
           toggleHandler={ () => this.toggleOpenClosed() }
           story={ this.props.story }
+          bem={ this.props.bem }
         />
       </div>
     );

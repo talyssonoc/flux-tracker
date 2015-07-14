@@ -2,15 +2,13 @@ import projectConstants from 'app/constants/project';
 
 export default function addStory(context, payload, done) {
 
-  context.service.create(
-    'story',
+  context.service.create('story',
     {},
     {
       title: payload.title,
       project_id: payload.project_id
     },
-    {},
-    function(err, story) {
+    {}, function(err, story) {
       if(err) {
         console.error(err);
       }
@@ -22,5 +20,4 @@ export default function addStory(context, payload, done) {
       done();
     }
   );
-
 };

@@ -6,6 +6,13 @@ import Column from './Column';
 
 import B from 'app/helpers/bem';
 
+@connectToStores([ StoriesStore ], (context, props) => {
+  var storiesStore = context.getStore(StoriesStore);
+
+  return {
+    stories: storiesStore.getStories()
+  };
+})
 class Project extends React.Component {
 
   render() {
@@ -51,14 +58,4 @@ Project.defaultProps = {
   stories: []
 };
 
-export default connectToStores(
-  Project,
-  [ StoriesStore ],
-  function(context, props) {
-    var storiesStore = context.getStore(StoriesStore);
-
-    return {
-      stories: storiesStore.getStories()
-    };
-  }
-);
+export default Project;

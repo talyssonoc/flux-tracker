@@ -27,7 +27,6 @@ class ClosedStoryContent extends React.Component {
 }
 
 ClosedStoryContent.defaultProps = {
-  bem: B.with('story'),
   className: ''
 };
 

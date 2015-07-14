@@ -160,7 +160,6 @@ class OpenStoryContent extends React.Component {
 }
 
 OpenStoryContent.defaultProps = {
-  bem: B.with('story'),
   className: ''
 };
 

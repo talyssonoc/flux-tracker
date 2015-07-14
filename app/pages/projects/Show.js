@@ -12,6 +12,14 @@ import Project from 'app/components/Project';
 import B from 'app/helpers/bem';
 import contextTypes from 'app/helpers/contextTypes';
 
+@connectToStores([ ProjectsStore ], (context, props) => {
+  var projectsStore = context.getStore(ProjectsStore);
+
+  return {
+    project: projectsStore.getCurrentProject(),
+    visibleColumns: projectsStore.getVisibleColumns()
+  };
+})
 class Show extends React.Component {
 
   toggleColumn(column) {
@@ -96,15 +104,4 @@ Show.defaultProps = {
 
 Show.contextTypes = contextTypes();
 
-export default connectToStores(
-  Show,
-  [ ProjectsStore ],
-  function(context, props) {
-    var projectsStore = context.getStore(ProjectsStore);
-
-    return {
-      project: projectsStore.getCurrentProject(),
-      visibleColumns: projectsStore.getVisibleColumns()
-    };
-  }
-);
+export default Show;

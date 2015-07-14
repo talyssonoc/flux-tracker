@@ -7,6 +7,13 @@ import ProjectsStore from 'app/stores/ProjectsStore';
 
 import B from 'app/helpers/bem';
 
+@connectToStores([ ProjectsStore ], (context, props) => {
+  var projectsStore = context.getStore(ProjectsStore);
+
+  return {
+    projects: projectsStore.getProjects()
+  };
+})
 class Index extends React.Component {
 
   render() {
@@ -43,14 +50,4 @@ Index.defaultProps = {
   bem: B.with('projects-index')
 };
 
-export default connectToStores(
-  Index,
-  [ ProjectsStore ],
-  function(context, props) {
-    var projectsStore = context.getStore(ProjectsStore);
-
-    return {
-      projects: projectsStore.getProjects()
-    };
-  }
-);
+export default Index;

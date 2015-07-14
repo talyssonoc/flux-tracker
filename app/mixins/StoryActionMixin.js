@@ -6,36 +6,32 @@ import React from 'react';
 import B from 'app/helpers/bem';
 
 var StoryActionMixin = {
-  instanceMixin: {
-    changeStateTo: function changeStateTo(event, newState) {
-      event.stopPropagation();
+  contextTypes: contextTypes(),
 
-      this.context.executeAction(changeStoryState, {
-        storyId: this.props.storyId,
-        newState: newState
-      });
-    },
+  changeStateTo(event, newState) {
+    event.stopPropagation();
 
-    createActionButton: function createActionButton(text, type, toState) {
-      return (
-        <button
-          onClick={ (e) => this.changeStateTo(e, toState) }
-          className={ this.props.bem({ [type]: true }) }>
-          { text }
-        </button>
-      );
-    }
+    this.context.executeAction(changeStoryState, {
+      storyId: this.props.storyId,
+      newState: newState
+    });
   },
 
-  classMixin: {
-    contextTypes: contextTypes(),
+  createActionButton(text, type, toState) {
+    return (
+      <button
+        onClick={ (e) => this.changeStateTo(e, toState) }
+        className={ this.props.bem({ [type]: true }) }>
+        { text }
+      </button>
+    );
+  },
 
-    getDefaultProps: function getDefaultProps() {
-      return {
-        bem: B.with('story__actions__button'),
-        className: ''
-      };
-    }
+  getDefaultProps() {
+    return {
+      bem: B.with('story__actions__button'),
+      className: ''
+    };
   }
 };
 
