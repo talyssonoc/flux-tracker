@@ -1,7 +1,6 @@
 import React from 'react';
 
 import storyActions from './story_actions';
-import changeStoryState from 'app/actions/changeStoryState';
 
 import B from 'app/helpers/bem';
 import contextTypes from 'app/helpers/contextTypes';
