@@ -4,7 +4,9 @@ class MockProjectsStore extends BaseStore {
   static storeName = 'ProjectsStore';
 
   static handlers = {
-    TOGGLE_COLUMN: 'handleToggleColumn'
+    TOGGLE_COLUMN: 'handleToggleColumn',
+    RECEIVE_PROJECTS: 'handleReceiveProjects',
+    RECEIVE_CURRENT_PROJECT: 'handleReceiveProject'
   }
 
   constructor(dispatcher) {
@@ -17,8 +19,28 @@ class MockProjectsStore extends BaseStore {
     this.emitChange();
   }
 
+  handleReceiveProjects(payload) {
+    this.projects = payload.projects;
+
+    this.emitChange();
+  }
+
+  handleReceiveProject(payload) {
+    this.currentProject = payload.project;
+
+    this.emitChange();
+  }
+
   getToggledColumn() {
     return this.toggledColumn;
+  }
+
+  getProjects() {
+    return this.projects;
+  }
+
+  getCurrentProject() {
+    return this.currentProject;
   }
 }
 

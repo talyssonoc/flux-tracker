@@ -6,7 +6,8 @@ class MockStoriesStore extends BaseStore {
   static handlers = {
     CHANGE_STORY_STATE: 'handleChangeStoryState',
     DELETE_STORY: 'handleDeleteStory',
-    UPDATE_STORY: 'handleUpdateStory'
+    UPDATE_STORY: 'handleUpdateStory',
+    RECEIVE_STORIES: 'handleReceiveStories'
   }
 
   constructor(dispatcher) {
@@ -26,8 +27,15 @@ class MockStoriesStore extends BaseStore {
   }
 
   handleUpdateStory(payload) {
-
     this.emitChange();
+  }
+
+  handleReceiveStories(payload) {
+    this.stories = payload.stories;
+  }
+
+  getStories() {
+    return this.stories;
   }
 }
 
