@@ -18,4 +18,4 @@ export default function updateStory(context, payload, done) {
       done();
     }
   );
-};
+}

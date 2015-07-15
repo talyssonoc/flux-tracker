@@ -20,14 +20,14 @@ debugClient('rehydrating app');
 
 // pass in the dehydrated server state from server.js
 app.rehydrate(dehydratedState, function (err, context) {
-    if (err) {
-        throw err;
-    }
-    window.context = context;
-    const mountNode = document.getElementById('app');
+  if (err) {
+    throw err;
+  }
+  window.context = context;
+  const mountNode = document.getElementById('app');
 
-    debugClient('React Rendering');
-    React.render(createElementWithContext(context), mountNode, function () {
-        debugClient('React Rendered');
-    });
+  debugClient('React Rendering');
+  React.render(createElementWithContext(context), mountNode, function () {
+    debugClient('React Rendered');
+  });
 });

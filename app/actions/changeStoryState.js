@@ -17,4 +17,4 @@ export default function changeStoryState(context, payload, done) {
       done();
     }
   );
-};
+}

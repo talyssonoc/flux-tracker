@@ -10,11 +10,11 @@ class StoriesStore extends BaseStore {
   static storeName = 'StoriesStore'
 
   static handlers = {
-    [storyConstants.RECEIVE_STORIES]:     'handleReceiveStories',
-    [storyConstants.CHANGE_STORY_STATE]:  'handleStoryStateChange',
-    [projectConstants.ADD_STORY]:         'handleAddStory',
-    [projectConstants.DELETE_STORY]:      'handleDeleteStory',
-    [projectConstants.UPDATE_STORY]:      'handleUpdateStory'
+    [storyConstants.RECEIVE_STORIES]: 'handleReceiveStories',
+    [storyConstants.CHANGE_STORY_STATE]: 'handleStoryStateChange',
+    [projectConstants.ADD_STORY]: 'handleAddStory',
+    [projectConstants.DELETE_STORY]: 'handleDeleteStory',
+    [projectConstants.UPDATE_STORY]: 'handleUpdateStory'
   }
 
   constructor(dispatcher) {
@@ -60,7 +60,7 @@ class StoriesStore extends BaseStore {
   }
 
   handleStoryStateChange(payload) {
-    var story = this.stories.filter(story => story.id === payload.story.id)[0];
+    var story = this.stories.filter(s => s.id === payload.story.id)[0];
 
     story.state = payload.story.state;
     story.column = this.getColumn(story);
@@ -90,7 +90,7 @@ class StoriesStore extends BaseStore {
   }
 
   handleUpdateStory(payload) {
-    var story = this.stories.filter(story => story.id === payload.story.id)[0];
+    var story = this.stories.filter(s => s.id === payload.story.id)[0];
 
     _.assign(story, payload.story);
     story.actions = this.getActions(story);

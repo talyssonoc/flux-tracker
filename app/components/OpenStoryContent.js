@@ -36,6 +36,7 @@ class OpenStoryContent extends React.Component {
   }
 
   deleteStory() {
+    /* global confirm */
     if(confirm('Do you really want to delete it?')) {
       this.context.executeAction(deleteStory, {
         storyId: this.props.story.id

@@ -17,5 +17,4 @@ export default function deleteStory(context, payload, done) {
       done();
     }
   );
-
 }

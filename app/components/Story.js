@@ -1,7 +1,7 @@
 import React from 'react';
 
-import ClosedStoryContent  from './ClosedStoryContent';
-import OpenStoryContent  from './OpenStoryContent';
+import ClosedStoryContent from './ClosedStoryContent';
+import OpenStoryContent from './OpenStoryContent';
 
 import B from 'app/helpers/bem';
 

@@ -4,4 +4,4 @@ export default function toggleColumn(context, payload, done) {
   context.dispatch(columnConstants.TOGGLE_COLUMN, {
     column: payload.column
   });
-};
+}

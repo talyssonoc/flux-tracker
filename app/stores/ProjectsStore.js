@@ -8,9 +8,9 @@ class ProjectsStore extends BaseStore {
   static storeName = 'ProjectsStore'
 
   static handlers = {
-    [projectConstants.RECEIVE_PROJECTS]:        'handleReceiveProjects',
+    [projectConstants.RECEIVE_PROJECTS]: 'handleReceiveProjects',
     [projectConstants.RECEIVE_CURRENT_PROJECT]: 'handleReceiveProject',
-    [columnConstants.TOGGLE_COLUMN]:            'handleToggleColumn'
+    [columnConstants.TOGGLE_COLUMN]: 'handleToggleColumn'
   }
 
   constructor(dispatcher) {
@@ -68,7 +68,7 @@ class ProjectsStore extends BaseStore {
   rehydrate(state) {
     this.projects = state.projects;
     this.currentProject = state.currentProject;
-    this.visibleColumns = state.visibleColumns
+    this.visibleColumns = state.visibleColumns;
   }
 }
 

@@ -1,6 +1,8 @@
 import _ from 'lodash';
 import checkQuery from './checkQuery';
 
+/* global db */
+
 export default function createService(collection, overrides = {}) {
   return _.defaults(overrides, {
     create: function(req, resource, params, body, config, callback) {
@@ -37,4 +39,4 @@ export default function createService(collection, overrides = {}) {
       callback(null, {});
     }
   });
-};
+}

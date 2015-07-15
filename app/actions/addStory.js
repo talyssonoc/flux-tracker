@@ -20,4 +20,4 @@ export default function addStory(context, payload, done) {
       done();
     }
   );
-};
+}
