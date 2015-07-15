@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "gulp",
-    "lint": "eslint app/**/*.js"
+    "lint": "eslint app/**/*.js",
+    "test": "karma start"
   },
   "dependencies": {
     "b_": "^1.3.2",
@@ -41,6 +42,12 @@
     "gulp-util": "^3.0.6",
     "gulp-webpack-build": "^0.11.1",
     "json-loader": "~0.5.2",
+    "karma-chai": "^0.1.0",
+    "karma-mocha": "^0.2.0",
+    "karma-phantomjs-shim": "1.0.0",
+    "karma-phantomjs-launcher": "^0.2.0",
+    "karma-sourcemap-loader": "^0.3.5",
+    "karma-webpack": "^1.6.0",
     "node-sass": "^3.2.0",
     "nodemon": "^1.3.7",
     "webpack": "^1.10.1",
