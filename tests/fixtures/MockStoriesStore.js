@@ -4,7 +4,8 @@ class MockStoriesStore extends BaseStore {
   static storeName = 'StoriesStore';
 
   static handlers = {
-    CHANGE_STORY_STATE: 'handleChangeStoryState'
+    CHANGE_STORY_STATE: 'handleChangeStoryState',
+    DELETE_STORY: 'handleDeleteStory'
   }
 
   constructor(dispatcher) {
@@ -13,6 +14,12 @@ class MockStoriesStore extends BaseStore {
 
   handleChangeStoryState(payload) {
     this.story = payload.story;
+
+    this.emitChange();
+  }
+
+  handleDeleteStory(payload) {
+    this.storyDeleted = payload.storyId;
 
     this.emitChange();
   }

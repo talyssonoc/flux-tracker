@@ -2,9 +2,9 @@ import { createMockActionContext } from 'fluxible/utils';
 import MockService from 'fluxible-plugin-fetchr/utils/MockServiceManager';
 
 import MockStoriesStore from 'tests/fixtures/MockStoriesStore';
-import changeStoryState from 'app/actions/changeStoryState';
+import deleteStory from 'app/actions/deleteStory';
 
-describe('changeStoryState', function() {
+describe('deleteStory', function() {
   var context;
 
   beforeEach(function() {
@@ -14,18 +14,16 @@ describe('changeStoryState', function() {
 
     context.service = new MockService();
 
-    context.service.setService('story', function(method, params, body, config, callback) {
+    context.service.setService('story', function(method, params, config, callback) {
       callback(null, {
-        id: params.id,
-        state: body.state
+        id: params.id
       });
     });
   });
 
-  it('should change story state', function(done) {
-    context.executeAction(changeStoryState, {
-      storyId: 0,
-      newState: 'finished'
+  it('should delete a story', function(done) {
+    context.executeAction(deleteStory, {
+      storyId: 3
     }, function(err) {
       if(err) {
         return done(err);
@@ -33,13 +31,10 @@ describe('changeStoryState', function() {
 
       expect(context.dispatchCalls.length).to.equal(1);
 
-      expect(context.dispatchCalls[0].name).to.equal('CHANGE_STORY_STATE');
+      expect(context.dispatchCalls[0].name).to.equal('DELETE_STORY');
 
       expect(context.dispatchCalls[0].payload).to.eql({
-        story: {
-          id: 0,
-          state: 'finished'
-        }
+        storyId: 3
       });
 
       done();
