@@ -1,5 +1,7 @@
 # FluxTracker
 
+[![Build Status](https://travis-ci.org/talyssonoc/flux-tracker.svg?branch=master)](https://travis-ci.org/talyssonoc/flux-tracker) [![Code Climate](https://codeclimate.com/github/talyssonoc/flux-tracker/badges/gpa.svg)](https://codeclimate.com/github/talyssonoc/flux-tracker)
+
 FluxTracker is a user story tracker, highly influenced by [Pivotal Tracker](https://www.pivotaltracker.com/) and [Fulcrum](https://github.com/fulcrum-agile/fulcrum) built as a isopmorphic app with [React](http://facebook.github.io/react/) and [Fluxible](http://fluxible.io/).
 
 It's in development yet, don't use it. Contributions and suggestions are welcome !
