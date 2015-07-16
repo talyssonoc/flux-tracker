@@ -1,0 +1,18 @@
+import disk from 'sails-disk';
+
+export default {
+  adapters: {
+    'default': disk,
+    disk: disk
+  },
+
+  connections: {
+    default: {
+      adapter: 'disk'
+    }
+  },
+
+  defaults: {
+    migrate: 'alter'
+  }
+};

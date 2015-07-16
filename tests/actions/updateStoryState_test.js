@@ -20,7 +20,7 @@ describe('updateStory', function() {
     context.service = new MockService();
 
     context.service.setService('story', function(method, params, body, config, callback) {
-      callback(null, body);
+      callback(null, [body]);
     });
   });
 

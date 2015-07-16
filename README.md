@@ -8,13 +8,21 @@ It's in development yet, don't use it. Contributions and suggestions are welcome
 
 ## Setup
 
-Checkout the project, then just run:
+Checkout the project then  run:
 
 ```sh
   $ npm install
 ```
 
-You can run the project with:
+Configure the `configs/database.js` file (you can rename the `configs/database.js.example` and fill it with the date of your local database). The content of this file will be passed to the `initialize` method of a [Waterline](https://github.com/balderdashy/waterline-docs/blob/master/introduction/getting-started.md) instance.
+
+Now you should seed your project, running:
+
+```sh
+  $ npm run seed
+```
+
+And then you can run the project with:
 
 ```sh
   $ npm run dev
