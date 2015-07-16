@@ -2,14 +2,14 @@
   projects: [
     '{{repeat(3)}}',
     {
-      id: '{{index()}}',
+      id: '{{index(1)}}',
       name: '{{firstName()}} {{index()}}'
     }
   ],
   stories: [
     '{{repeat(60)}}',
     {
-      id: '{{index()}}',
+      id: '{{index(1)}}',
       state: '{{random("icebox", "unstarted", "started", "finished", "delivered", "accepted", "rejected")}}',
       type: '{{random("feature", "chore", "bug", "release")}}',
       title: function() {

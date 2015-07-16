@@ -4,10 +4,12 @@ import { navigateAction } from 'fluxible-router';
 import { createElementWithContext } from 'fluxible-addons-react';
 import debugLib from 'debug';
 
-
 import HtmlComponent from './Html';
 
+import seed from 'app/helpers/seed';
+
 export default function (app) {
+
   const htmlComponent = React.createFactory(HtmlComponent);
 
   const debug = debugLib('flux-tracker');
@@ -43,5 +45,5 @@ export default function (app) {
       res.write('<!DOCTYPE html>' + html);
       res.end();
     });
-  }
+  };
 }

@@ -1,47 +1,30 @@
 import _ from 'lodash';
-import checkQuery from './checkQuery';
 
 /* global db */
 
-export default function createService(collection, overrides = {}) {
+export default function createService(overrides = {}) {
+  const collectionName = overrides.name;
+
   return _.defaults(overrides, {
     create: function(req, resource, params, body, config, callback) {
-      let data = db(collection).insert(body);
-
-      callback(null, data);
+      db[collectionName].create(body).exec(callback);
     },
 
     read: function(req, resource, params, config, callback) {
-      let hasQuery = checkQuery(params);
 
-      let data = db(collection);
-
-      if(hasQuery) {
-        data = data.where(params);
+      if(config.findOne) {
+        return db[collectionName].findOne(params).exec(callback);
       }
 
-      callback(null, data);
+      db[collectionName].find(params).exec(callback);
     },
 
     update: function(req, resource, params, body, config, callback) {
-      var data = db(collection).chain().find(params);
-
-      if(data) {
-        data = data.assign(body).value();
-      }
-      else {
-        data = db(collection).insert(body);
-      }
-
-      callback(null, data);
+      db[collectionName].update(params, body).exec(callback);
     },
 
     delete: function(req, resource, params, config, callback) {
-      var data = db(collection);
-
-      data.remove(params);
-
-      callback(null, {});
+      db[collectionName].destroy(params).exec(callback);
     }
   });
 }

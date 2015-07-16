@@ -15,10 +15,10 @@ describe('changeStoryState', function() {
     context.service = new MockService();
 
     context.service.setService('story', function(method, params, body, config, callback) {
-      callback(null, {
+      callback(null, [{
         id: params.id,
         state: body.state
-      });
+      }]);
     });
   });
 

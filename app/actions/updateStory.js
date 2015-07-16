@@ -6,13 +6,13 @@ export default function updateStory(context, payload, done) {
     { id: payload.story.id },
     payload.story,
     {},
-    function(err, story) {
+    function(err, stories) {
       if(err) {
         console.error(err);
       }
 
       context.dispatch(projectConstants.UPDATE_STORY, {
-        story: story
+        story: stories[0]
       });
 
       done();

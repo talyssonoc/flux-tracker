@@ -5,11 +5,10 @@ import path from 'path';
 // Server imports
 
 import express from 'express';
-import low from 'lowdb';
-import underscoreDb from 'underscore-db';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import csurf from 'csurf';
+import loadDatabase from 'app/helpers/loadDatabase';
 
 // Flux/React imports
 
@@ -25,9 +24,6 @@ import appHandler from './handler';
 app.root = path.resolve(__dirname, '..');
 
 let fetchr = registerServices(app);
-
-global.db = low(path.join(__dirname, '../../database/db.json'), { autosave: false });
-global.db._.mixin(underscoreDb);
 
 // Server stuff
 
@@ -45,8 +41,16 @@ server.use(fetchr.getXhrPath(), fetchr.getMiddleware());
 
 server.use(appHandler(app));
 
-const port = process.env.PORT || 4000;
-server.listen(port);
-console.log('Listening on port ' + port);
+loadDatabase((err, models) => {
+  if(err) {
+    throw err;
+  }
+
+  global.db = models;
+
+  const port = process.env.PORT || 4000;
+  server.listen(port);
+  console.log('Listening on port ' + port);
+});
 
 export default server;
