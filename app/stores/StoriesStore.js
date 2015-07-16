@@ -76,6 +76,8 @@ class StoriesStore extends BaseStore {
     story.column = 'icebox';
     story.actions = this.getActions(story);
     story.type = 'feature';
+    story.open = true;
+
     this.stories.push(story);
 
     this.emitChange();

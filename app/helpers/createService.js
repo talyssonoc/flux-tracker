@@ -26,7 +26,12 @@ export default function createService(collection, overrides = {}) {
     update: function(req, resource, params, body, config, callback) {
       var data = db(collection).chain().find(params);
 
-      data = data.assign(body).value();
+      if(data) {
+        data = data.assign(body).value();
+      }
+      else {
+        data = db(collection).insert(body);
+      }
 
       callback(null, data);
     },

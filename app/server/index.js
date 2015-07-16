@@ -1,7 +1,6 @@
 // Node imports
 
 import path from 'path';
-import debugLib from 'debug';
 
 // Server imports
 
@@ -11,28 +10,21 @@ import underscoreDb from 'underscore-db';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import csurf from 'csurf';
-import serialize from 'serialize-javascript';
 
 // Flux/React imports
 
 import React from 'react';
-import { navigateAction } from 'fluxible-router';
-import { createElementWithContext } from 'fluxible-addons-react';
 
 // App imports
 
 import app from 'app/app';
 
 import registerServices from 'app/helpers/registerServices';
-import HtmlComponent from './Html';
+import appHandler from './handler';
 
 app.root = path.resolve(__dirname, '..');
 
 let fetchr = registerServices(app);
-
-const htmlComponent = React.createFactory(HtmlComponent);
-
-const debug = debugLib('flux-tracker');
 
 global.db = low(path.join(__dirname, '../../database/db.json'), { autosave: false });
 global.db._.mixin(underscoreDb);
@@ -51,38 +43,7 @@ server.use('/public', express.static(path.join(__dirname, '../../public')));
 
 server.use(fetchr.getXhrPath(), fetchr.getMiddleware());
 
-server.use((req, res, next) => {
-  let context = app.createContext();
-
-  debug('Executing navigate action');
-  context.getActionContext().executeAction(navigateAction, {
-      url: req.url
-  }, (err) => {
-    if (err) {
-      if (err.statusCode && err.statusCode === 404) {
-        next();
-      } else {
-        next(err);
-      }
-      return;
-    }
-
-    debug('Exposing context state');
-    const exposed = 'window.App=' + serialize(app.dehydrate(context)) + ';';
-
-    debug('Rendering Application component into html');
-    const html = React.renderToStaticMarkup(htmlComponent({
-      context: context.getComponentContext(),
-      state: exposed,
-      markup: React.renderToString(createElementWithContext(context))
-    }));
-
-    debug('Sending markup');
-    res.type('html');
-    res.write('<!DOCTYPE html>' + html);
-    res.end();
-  });
-});
+server.use(appHandler(app));
 
 const port = process.env.PORT || 4000;
 server.listen(port);

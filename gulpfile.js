@@ -24,7 +24,7 @@ gulp.task('clean:css', function(cb) {
 gulp.task('nodemon:app', ['clean:js'], function () {
   nodemon({
     script: './start.js',
-    ignore: ['build/**'],
+    ignore: ['build/**', 'node_modules/**'],
     ext: 'js',
     env: {
       NODE_PATH: __dirname
