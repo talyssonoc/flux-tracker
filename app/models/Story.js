@@ -9,7 +9,8 @@ var Story = Waterline.Collection.extend({
     title: 'string',
     state: 'string',
     type: 'string',
-    project_id: 'integer'
+    project_id: 'integer',
+    points: 'integer'
   }
 });
 

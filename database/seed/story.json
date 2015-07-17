@@ -1,9 +1,10 @@
 [
   {
     "id": 1,
-    "state": "rejected",
-    "type": "feature",
-    "title": "feature 1",
+    "state": "icebox",
+    "type": "release",
+    "title": "release 1",
+    "points": -1,
     "project_id": 1
   },
   {
@@ -11,412 +12,471 @@
     "state": "unstarted",
     "type": "chore",
     "title": "chore 2",
-    "project_id": 1
+    "points": 3,
+    "project_id": 2
   },
   {
     "id": 3,
-    "state": "icebox",
-    "type": "chore",
-    "title": "chore 3",
-    "project_id": 2
+    "state": "finished",
+    "type": "feature",
+    "title": "feature 3",
+    "points": -1,
+    "project_id": 3
   },
   {
     "id": 4,
-    "state": "rejected",
+    "state": "icebox",
     "type": "feature",
     "title": "feature 4",
-    "project_id": 2
+    "points": 2,
+    "project_id": 1
   },
   {
     "id": 5,
-    "state": "started",
-    "type": "release",
-    "title": "release 5",
+    "state": "rejected",
+    "type": "feature",
+    "title": "feature 5",
+    "points": 3,
     "project_id": 2
   },
   {
     "id": 6,
-    "state": "finished",
-    "type": "bug",
-    "title": "bug 6",
-    "project_id": 2
+    "state": "delivered",
+    "type": "chore",
+    "title": "chore 6",
+    "points": 2,
+    "project_id": 1
   },
   {
     "id": 7,
-    "state": "started",
-    "type": "bug",
-    "title": "bug 7",
-    "project_id": 3
+    "state": "unstarted",
+    "type": "release",
+    "title": "release 7",
+    "points": 3,
+    "project_id": 1
   },
   {
     "id": 8,
     "state": "finished",
-    "type": "release",
-    "title": "release 8",
-    "project_id": 3
+    "type": "bug",
+    "title": "bug 8",
+    "points": -1,
+    "project_id": 1
   },
   {
     "id": 9,
-    "state": "started",
+    "state": "icebox",
     "type": "release",
     "title": "release 9",
-    "project_id": 2
+    "points": 2,
+    "project_id": 1
   },
   {
     "id": 10,
-    "state": "started",
-    "type": "bug",
-    "title": "bug 10",
-    "project_id": 1
-  },
-  {
-    "id": 11,
-    "state": "accepted",
+    "state": "unstarted",
     "type": "release",
-    "title": "release 11",
+    "title": "release 10",
+    "points": 8,
     "project_id": 2
   },
   {
-    "id": 12,
-    "state": "rejected",
-    "type": "release",
-    "title": "release 12",
-    "project_id": 3
-  },
-  {
-    "id": 13,
-    "state": "unstarted",
-    "type": "feature",
-    "title": "feature 13",
+    "id": 11,
+    "state": "delivered",
+    "type": "bug",
+    "title": "bug 11",
+    "points": 8,
     "project_id": 1
   },
   {
-    "id": 14,
-    "state": "rejected",
+    "id": 12,
+    "state": "delivered",
+    "type": "bug",
+    "title": "bug 12",
+    "points": 1,
+    "project_id": 2
+  },
+  {
+    "id": 13,
+    "state": "finished",
     "type": "chore",
-    "title": "chore 14",
+    "title": "chore 13",
+    "points": 8,
+    "project_id": 2
+  },
+  {
+    "id": 14,
+    "state": "finished",
+    "type": "bug",
+    "title": "bug 14",
+    "points": 3,
     "project_id": 3
   },
   {
     "id": 15,
-    "state": "started",
-    "type": "feature",
-    "title": "feature 15",
-    "project_id": 1
+    "state": "accepted",
+    "type": "bug",
+    "title": "bug 15",
+    "points": 1,
+    "project_id": 2
   },
   {
     "id": 16,
-    "state": "accepted",
+    "state": "started",
     "type": "chore",
     "title": "chore 16",
-    "project_id": 2
-  },
-  {
-    "id": 17,
-    "state": "rejected",
-    "type": "bug",
-    "title": "bug 17",
+    "points": 1,
     "project_id": 1
   },
   {
-    "id": 18,
-    "state": "rejected",
+    "id": 17,
+    "state": "started",
     "type": "bug",
-    "title": "bug 18",
+    "title": "bug 17",
+    "points": 2,
     "project_id": 2
+  },
+  {
+    "id": 18,
+    "state": "started",
+    "type": "chore",
+    "title": "chore 18",
+    "points": 5,
+    "project_id": 3
   },
   {
     "id": 19,
     "state": "rejected",
-    "type": "feature",
-    "title": "feature 19",
-    "project_id": 3
+    "type": "chore",
+    "title": "chore 19",
+    "points": 1,
+    "project_id": 2
   },
   {
     "id": 20,
-    "state": "rejected",
+    "state": "unstarted",
     "type": "feature",
     "title": "feature 20",
-    "project_id": 2
-  },
-  {
-    "id": 21,
-    "state": "unstarted",
-    "type": "chore",
-    "title": "chore 21",
-    "project_id": 1
-  },
-  {
-    "id": 22,
-    "state": "unstarted",
-    "type": "chore",
-    "title": "chore 22",
-    "project_id": 2
-  },
-  {
-    "id": 23,
-    "state": "icebox",
-    "type": "bug",
-    "title": "bug 23",
-    "project_id": 2
-  },
-  {
-    "id": 24,
-    "state": "icebox",
-    "type": "feature",
-    "title": "feature 24",
+    "points": -1,
     "project_id": 3
   },
   {
-    "id": 25,
-    "state": "rejected",
-    "type": "chore",
-    "title": "chore 25",
-    "project_id": 1
-  },
-  {
-    "id": 26,
-    "state": "started",
+    "id": 21,
+    "state": "finished",
     "type": "feature",
-    "title": "feature 26",
+    "title": "feature 21",
+    "points": 2,
     "project_id": 2
   },
   {
+    "id": 22,
+    "state": "started",
+    "type": "chore",
+    "title": "chore 22",
+    "points": 5,
+    "project_id": 3
+  },
+  {
+    "id": 23,
+    "state": "finished",
+    "type": "release",
+    "title": "release 23",
+    "points": 8,
+    "project_id": 1
+  },
+  {
+    "id": 24,
+    "state": "finished",
+    "type": "chore",
+    "title": "chore 24",
+    "points": 8,
+    "project_id": 2
+  },
+  {
+    "id": 25,
+    "state": "accepted",
+    "type": "chore",
+    "title": "chore 25",
+    "points": 1,
+    "project_id": 2
+  },
+  {
+    "id": 26,
+    "state": "icebox",
+    "type": "feature",
+    "title": "feature 26",
+    "points": 1,
+    "project_id": 3
+  },
+  {
     "id": 27,
-    "state": "unstarted",
-    "type": "bug",
-    "title": "bug 27",
+    "state": "accepted",
+    "type": "feature",
+    "title": "feature 27",
+    "points": 5,
     "project_id": 1
   },
   {
     "id": 28,
-    "state": "delivered",
-    "type": "bug",
-    "title": "bug 28",
-    "project_id": 3
-  },
-  {
-    "id": 29,
-    "state": "accepted",
+    "state": "rejected",
     "type": "feature",
-    "title": "feature 29",
+    "title": "feature 28",
+    "points": 1,
     "project_id": 1
   },
   {
-    "id": 30,
-    "state": "rejected",
-    "type": "release",
-    "title": "release 30",
+    "id": 29,
+    "state": "unstarted",
+    "type": "chore",
+    "title": "chore 29",
+    "points": 2,
     "project_id": 3
   },
   {
-    "id": 31,
+    "id": 30,
     "state": "icebox",
-    "type": "chore",
-    "title": "chore 31",
-    "project_id": 2
+    "type": "release",
+    "title": "release 30",
+    "points": 1,
+    "project_id": 1
+  },
+  {
+    "id": 31,
+    "state": "finished",
+    "type": "bug",
+    "title": "bug 31",
+    "points": 2,
+    "project_id": 1
   },
   {
     "id": 32,
     "state": "rejected",
-    "type": "release",
-    "title": "release 32",
+    "type": "feature",
+    "title": "feature 32",
+    "points": -1,
     "project_id": 2
   },
   {
     "id": 33,
-    "state": "delivered",
-    "type": "feature",
-    "title": "feature 33",
-    "project_id": 2
+    "state": "unstarted",
+    "type": "bug",
+    "title": "bug 33",
+    "points": 3,
+    "project_id": 3
   },
   {
     "id": 34,
-    "state": "started",
-    "type": "feature",
-    "title": "feature 34",
+    "state": "icebox",
+    "type": "release",
+    "title": "release 34",
+    "points": 3,
     "project_id": 2
   },
   {
     "id": 35,
-    "state": "started",
-    "type": "chore",
-    "title": "chore 35",
+    "state": "icebox",
+    "type": "bug",
+    "title": "bug 35",
+    "points": 5,
     "project_id": 3
   },
   {
     "id": 36,
-    "state": "accepted",
-    "type": "bug",
-    "title": "bug 36",
-    "project_id": 1
+    "state": "unstarted",
+    "type": "feature",
+    "title": "feature 36",
+    "points": 8,
+    "project_id": 3
   },
   {
     "id": 37,
-    "state": "delivered",
-    "type": "bug",
-    "title": "bug 37",
-    "project_id": 1
+    "state": "unstarted",
+    "type": "feature",
+    "title": "feature 37",
+    "points": 1,
+    "project_id": 2
   },
   {
     "id": 38,
-    "state": "unstarted",
-    "type": "release",
-    "title": "release 38",
-    "project_id": 1
+    "state": "finished",
+    "type": "bug",
+    "title": "bug 38",
+    "points": 3,
+    "project_id": 2
   },
   {
     "id": 39,
     "state": "delivered",
     "type": "bug",
     "title": "bug 39",
-    "project_id": 3
+    "points": 2,
+    "project_id": 1
   },
   {
     "id": 40,
-    "state": "rejected",
-    "type": "bug",
-    "title": "bug 40",
-    "project_id": 3
+    "state": "accepted",
+    "type": "release",
+    "title": "release 40",
+    "points": -1,
+    "project_id": 2
   },
   {
     "id": 41,
-    "state": "rejected",
-    "type": "release",
-    "title": "release 41",
+    "state": "delivered",
+    "type": "feature",
+    "title": "feature 41",
+    "points": 5,
     "project_id": 3
   },
   {
     "id": 42,
-    "state": "accepted",
-    "type": "feature",
-    "title": "feature 42",
-    "project_id": 3
+    "state": "delivered",
+    "type": "chore",
+    "title": "chore 42",
+    "points": 1,
+    "project_id": 1
   },
   {
     "id": 43,
     "state": "unstarted",
-    "type": "release",
-    "title": "release 43",
+    "type": "bug",
+    "title": "bug 43",
+    "points": 5,
     "project_id": 2
   },
   {
     "id": 44,
-    "state": "rejected",
-    "type": "chore",
-    "title": "chore 44",
-    "project_id": 1
+    "state": "delivered",
+    "type": "feature",
+    "title": "feature 44",
+    "points": 5,
+    "project_id": 3
   },
   {
     "id": 45,
-    "state": "rejected",
+    "state": "finished",
     "type": "chore",
     "title": "chore 45",
+    "points": 5,
     "project_id": 2
   },
   {
     "id": 46,
-    "state": "icebox",
-    "type": "feature",
-    "title": "feature 46",
+    "state": "accepted",
+    "type": "release",
+    "title": "release 46",
+    "points": 1,
     "project_id": 3
   },
   {
     "id": 47,
-    "state": "unstarted",
-    "type": "feature",
-    "title": "feature 47",
-    "project_id": 2
+    "state": "finished",
+    "type": "release",
+    "title": "release 47",
+    "points": 1,
+    "project_id": 3
   },
   {
     "id": 48,
-    "state": "finished",
-    "type": "bug",
-    "title": "bug 48",
+    "state": "delivered",
+    "type": "feature",
+    "title": "feature 48",
+    "points": 1,
     "project_id": 2
   },
   {
     "id": 49,
-    "state": "finished",
-    "type": "chore",
-    "title": "chore 49",
+    "state": "icebox",
+    "type": "release",
+    "title": "release 49",
+    "points": 5,
     "project_id": 2
   },
   {
     "id": 50,
-    "state": "delivered",
-    "type": "feature",
-    "title": "feature 50",
-    "project_id": 1
-  },
-  {
-    "id": 51,
-    "state": "accepted",
-    "type": "release",
-    "title": "release 51",
+    "state": "finished",
+    "type": "bug",
+    "title": "bug 50",
+    "points": 1,
     "project_id": 3
   },
   {
-    "id": 52,
-    "state": "finished",
-    "type": "feature",
-    "title": "feature 52",
+    "id": 51,
+    "state": "icebox",
+    "type": "bug",
+    "title": "bug 51",
+    "points": -1,
     "project_id": 1
   },
   {
+    "id": 52,
+    "state": "delivered",
+    "type": "feature",
+    "title": "feature 52",
+    "points": 8,
+    "project_id": 3
+  },
+  {
     "id": 53,
-    "state": "accepted",
+    "state": "rejected",
     "type": "release",
     "title": "release 53",
-    "project_id": 1
+    "points": 1,
+    "project_id": 3
   },
   {
     "id": 54,
     "state": "rejected",
     "type": "bug",
     "title": "bug 54",
+    "points": -1,
     "project_id": 1
   },
   {
     "id": 55,
-    "state": "started",
-    "type": "feature",
-    "title": "feature 55",
-    "project_id": 2
+    "state": "finished",
+    "type": "chore",
+    "title": "chore 55",
+    "points": 5,
+    "project_id": 3
   },
   {
     "id": 56,
-    "state": "started",
-    "type": "bug",
-    "title": "bug 56",
-    "project_id": 1
+    "state": "accepted",
+    "type": "release",
+    "title": "release 56",
+    "points": 1,
+    "project_id": 3
   },
   {
     "id": 57,
-    "state": "started",
-    "type": "release",
-    "title": "release 57",
+    "state": "rejected",
+    "type": "bug",
+    "title": "bug 57",
+    "points": -1,
     "project_id": 3
   },
   {
     "id": 58,
-    "state": "accepted",
+    "state": "icebox",
     "type": "feature",
     "title": "feature 58",
-    "project_id": 2
+    "points": 1,
+    "project_id": 3
   },
   {
     "id": 59,
-    "state": "delivered",
+    "state": "started",
     "type": "release",
     "title": "release 59",
-    "project_id": 2
+    "points": -1,
+    "project_id": 1
   },
   {
     "id": 60,
-    "state": "icebox",
-    "type": "chore",
-    "title": "chore 60",
+    "state": "rejected",
+    "type": "feature",
+    "title": "feature 60",
+    "points": -1,
     "project_id": 2
   }
 ]

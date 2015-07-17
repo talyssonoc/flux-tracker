@@ -21,7 +21,7 @@ export default function createService(overrides = {}) {
 
     update: function(req, resource, params, body, config, callback) {
 
-      if(!body.id) {
+      if(!params.id) {
         return db[collectionName].create([body]).exec(callback);
       }
 
