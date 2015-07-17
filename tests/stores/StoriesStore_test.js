@@ -81,4 +81,42 @@ describe('StoriesStore', function() {
     expect(store.stories[0].id).to.be.equal(1);
     expect(store.stories[1].id).to.be.equal(2);
   });
+
+  it('should prepare a new added temporary story', function() {
+    store.handleAddStory({
+      story: {
+        title: 'My story',
+        project_id: 1
+      }
+    });
+
+    expect(store.stories.length).to.be.equal(1);
+
+    var tempStory = store.stories[0];
+
+    expect(tempStory.title).to.be.equal('My story');
+    expect(tempStory.project_id).to.be.equal(1);
+    expect(tempStory.state).to.be.equal('icebox');
+    expect(tempStory.column).to.be.equal('icebox');
+    expect(tempStory.type).to.be.equal('feature');
+    expect(tempStory._new).to.be.ok;
+    expect(tempStory).to.have.any.keys('_tempId');
+  });
+
+  it('should cancel a temporary story', function() {
+    store.handleAddStory({
+      story: {
+        title: 'My story',
+        project_id: 1
+      }
+    });
+
+    var tempStory = store.stories[0];
+
+    store.handleCancelCreateStory({
+      _tempId: tempStory._tempId
+    });
+
+    expect(store.stories.length).to.be.equal(0);
+  });
 });

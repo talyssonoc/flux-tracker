@@ -8,4 +8,6 @@ export default function addStory(context, payload, done) {
       project_id: payload.project_id
     }
   });
+
+  done();
 }

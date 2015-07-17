@@ -5,5 +5,6 @@ export default mirror({
   RECEIVE_CURRENT_PROJECT: null,
   ADD_STORY: null,
   DELETE_STORY: null,
-  UPDATE_STORY: null
+  UPDATE_STORY: null,
+  CANCEL_CREATE_STORY: null
 });

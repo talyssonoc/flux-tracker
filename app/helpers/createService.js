@@ -20,6 +20,11 @@ export default function createService(overrides = {}) {
     },
 
     update: function(req, resource, params, body, config, callback) {
+
+      if(!body.id) {
+        return db[collectionName].create([body]).exec(callback);
+      }
+
       db[collectionName].update(params, body).exec(callback);
     },
 

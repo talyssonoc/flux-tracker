@@ -7,7 +7,9 @@ class MockStoriesStore extends BaseStore {
     CHANGE_STORY_STATE: 'handleChangeStoryState',
     DELETE_STORY: 'handleDeleteStory',
     UPDATE_STORY: 'handleUpdateStory',
-    RECEIVE_STORIES: 'handleReceiveStories'
+    RECEIVE_STORIES: 'handleReceiveStories',
+    ADD_STORY: 'handleAddStory',
+    CANCEL_CREATE_STORY: 'handleCancelCreateStory'
   }
 
   constructor(dispatcher) {
@@ -32,10 +34,31 @@ class MockStoriesStore extends BaseStore {
 
   handleReceiveStories(payload) {
     this.stories = payload.stories;
+
+    this.emitChange();
+  }
+
+  handleAddStory(payload) {
+    this.addedStory = payload.story;
+
+    this.emitChange();
+  }
+
+  handleCancelCreateStory(payload) {
+    this.cancelledStory = payload._tempId;
+    this.emitChange();
   }
 
   getStories() {
     return this.stories;
+  }
+
+  getAddedStory() {
+    return this.addedStory;
+  }
+
+  getCancelledStory() {
+    return this.cancelledStory;
   }
 }
 

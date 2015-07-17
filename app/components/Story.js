@@ -16,7 +16,7 @@ class Story extends React.Component {
     super();
 
     this.state = {
-      open: false
+      open: props.story._new
     };
   }
 

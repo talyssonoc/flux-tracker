@@ -35,12 +35,15 @@ class Show extends React.Component {
   }
 
   addStory() {
-    // var title = prompt('Name:');
+    var title = prompt('Name:');
 
-    // this.context.executeAction(addStory, {
-    //   title: title,
-    //   project_id: this.props.project.id
-    // });
+    if(title) {
+      this.context.executeAction(addStory, {
+        title: title,
+        project_id: this.props.project.id
+      });
+    }
+
   }
 
   render() {

@@ -4,6 +4,7 @@ import projectConstants from 'app/constants/project';
 import storyConstants from 'app/constants/story';
 
 import _ from 'lodash';
+import shortid from 'shortid';
 
 class StoriesStore extends BaseStore {
 
@@ -14,7 +15,8 @@ class StoriesStore extends BaseStore {
     [storyConstants.CHANGE_STORY_STATE]: 'handleStoryStateChange',
     [projectConstants.ADD_STORY]: 'handleAddStory',
     [projectConstants.DELETE_STORY]: 'handleDeleteStory',
-    [projectConstants.UPDATE_STORY]: 'handleUpdateStory'
+    [projectConstants.UPDATE_STORY]: 'handleUpdateStory',
+    [projectConstants.CANCEL_CREATE_STORY]: 'handleCancelCreateStory'
   }
 
   constructor(dispatcher) {
@@ -72,11 +74,12 @@ class StoriesStore extends BaseStore {
   handleAddStory(payload) {
     var story = payload.story;
 
-    story.state = 'unstarted';
+    story.state = 'icebox';
     story.column = 'icebox';
     story.actions = this.getActions(story);
     story.type = 'feature';
-    story.open = true;
+    story._new = true;
+    story._tempId = shortid.generate();
 
     this.stories.push(story);
 
@@ -94,9 +97,24 @@ class StoriesStore extends BaseStore {
   handleUpdateStory(payload) {
     var story = this.stories.filter(s => s.id === payload.story.id)[0];
 
+    story = story || this.stories.filter(s => s._tempId === payload._tempId)[0];
+
+    if(story._new) {
+      delete story._new;
+      delete story._tempId;
+    }
+
     _.assign(story, payload.story);
     story.actions = this.getActions(story);
     story.column = this.getColumn(story);
+
+    this.emitChange();
+  }
+
+  handleCancelCreateStory(payload) {
+    _.remove(this.stories, {
+      _tempId: payload._tempId
+    });
 
     this.emitChange();
   }

@@ -16,7 +16,7 @@ export default function loadDatabase(done) {
       return done(err, null);
     }
 
-    done(null, models.collections)
+    done(null, models.collections);
 
   });
 }

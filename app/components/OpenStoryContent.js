@@ -5,6 +5,7 @@ import TextArea from 'react-textarea-autosize';
 
 import deleteStory from 'app/actions/deleteStory';
 import updateStory from 'app/actions/updateStory';
+import cancelCreateStory from 'app/actions/cancelCreateStory';
 import keyCodes from 'app/constants/keyCodes';
 import storyConstants from 'app/constants/story';
 
@@ -38,10 +39,29 @@ class OpenStoryContent extends React.Component {
   deleteStory() {
     /* global confirm */
     if(confirm('Do you really want to delete it?')) {
+
+      if(this.props.story._new) {
+        return this.cancelCreateStory();
+      }
+
       this.context.executeAction(deleteStory, {
         storyId: this.props.story.id
       });
     }
+  }
+
+  cancelCreateStory() {
+    this.context.executeAction(cancelCreateStory, {
+      _tempId: this.props.story._tempId
+    });
+  }
+
+  cancelEdit() {
+    if(this.props.story._new) {
+      return this.cancelCreateStory();
+    }
+
+    this.props.toggleHandler();
   }
 
   keyDownHandler(event) {
@@ -147,7 +167,7 @@ class OpenStoryContent extends React.Component {
             </div>
             <div className="grid__col grid__col-3">
               <button
-                onClick={ () => this.props.toggleHandler() }
+                onClick={ () => this.cancelEdit() }
                 className="button button--black"
               >
                 Cancel
