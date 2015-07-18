@@ -3,7 +3,8 @@ import _ from 'lodash';
 
 export default _.extend(mirror({
   RECEIVE_STORIES: null,
-  CHANGE_STORY_STATE: null
+  CHANGE_STORY_STATE: null,
+  CHANGE_STORY_ESTIMATE: null
 }), {
   TYPES: [
     'feature',
@@ -12,6 +13,7 @@ export default _.extend(mirror({
     'release'
   ],
   STATES: [
+    'not_estimated',
     'icebox',
     'unstarted',
     'started',
@@ -19,23 +21,5 @@ export default _.extend(mirror({
     'delivered',
     'accepted',
     'rejected'
-  ],
-  STATE_COLUMNS: {
-    icebox: 'icebox',
-    unstarted: 'backlog',
-    started: 'current',
-    finished: 'current',
-    delivered: 'current',
-    accepted: 'done',
-    rejected: 'current'
-  },
-  STATE_ACTIONS: {
-    icebox: ['Start'],
-    unstarted: ['Start'],
-    started: ['Finish'],
-    finished: ['Deliver'],
-    delivered: ['Accept', 'Reject'],
-    accepted: [],
-    rejected: ['Restart']
-  }
+  ]
 });

@@ -4,6 +4,7 @@ import Deliver from './Deliver';
 import Accept from './Accept';
 import Reject from './Reject';
 import Restart from './Restart';
+import Estimate from './Estimate';
 
 export default {
   Start,
@@ -11,5 +12,6 @@ export default {
   Deliver,
   Accept,
   Reject,
-  Restart
+  Restart,
+  Estimate
 };

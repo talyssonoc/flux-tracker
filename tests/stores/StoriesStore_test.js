@@ -18,23 +18,23 @@ describe('StoriesStore', function() {
   });
 
   it('should return the right column', function() {
-    var columnBacklog = store.getColumn(stories[0]);
+    var columnIcebox2 = store.getColumn(stories[0]);
     var columnCurrent = store.getColumn(stories[1]);
     var columnIcebox = store.getColumn(stories[2]);
 
-    expect(columnBacklog).to.be.eql('backlog');
+    expect(columnIcebox2).to.be.eql('icebox');
     expect(columnCurrent).to.be.eql('current');
     expect(columnIcebox).to.be.eql('icebox');
   });
 
   it('should return the right actions', function() {
-    var startAction = store.getActions(stories[0]);
+    var estimateAction = store.getActions(stories[0]);
     var deliverAction = store.getActions(stories[1]);
-    var startAction2 = store.getActions(stories[2]);
+    var startAction = store.getActions(stories[2]);
 
-    expect(startAction).to.be.eql(['Start']);
+    expect(estimateAction).to.be.eql(['Estimate']);
     expect(deliverAction).to.be.eql(['Deliver']);
-    expect(startAction2).to.be.eql(['Start']);
+    expect(startAction).to.be.eql(['Start']);
   });
 
   it('should correctly receive the stories', function() {
@@ -59,7 +59,7 @@ describe('StoriesStore', function() {
       stories: stories
     });
 
-    store.handleStoryStateChange({
+    store.handleUpdateStory({
       story: storyWithNewState
     });
 
@@ -96,9 +96,10 @@ describe('StoriesStore', function() {
 
     expect(tempStory.title).to.be.equal('My story');
     expect(tempStory.project_id).to.be.equal(1);
-    expect(tempStory.state).to.be.equal('icebox');
+    expect(tempStory.state).to.be.equal('not_estimated');
     expect(tempStory.column).to.be.equal('icebox');
     expect(tempStory.type).to.be.equal('feature');
+    expect(tempStory.estimate).to.be.equal(-1);
     expect(tempStory._new).to.be.ok;
     expect(tempStory).to.have.any.keys('_tempId');
   });
@@ -118,5 +119,20 @@ describe('StoriesStore', function() {
     });
 
     expect(store.stories.length).to.be.equal(0);
+  });
+
+  it('should update story estimate', function() {
+    store.handleReceiveStories({
+      stories: [stories[0]]
+    });
+
+    store.handleUpdateStory({
+      story: {
+        id: 0,
+        estimate: -1
+      }
+    });
+
+    expect(store.stories[0].estimate).to.be.equal(-1);
   });
 });

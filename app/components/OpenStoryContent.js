@@ -75,7 +75,36 @@ class OpenStoryContent extends React.Component {
     React.findDOMNode(this.refs.title).focus();
   }
 
+  canSelectState() {
+    return this.state.estimate > 0;
+  }
+
   render() {
+    var states;
+
+    if(this.canSelectState()) {
+      states = [
+        'icebox',
+        'unstarted',
+        'started',
+        'finished',
+        'delivered',
+        'accepted',
+        'rejected'
+      ];
+    } else {
+      states = ['Estimate before start'];
+    }
+
+    states = states.map((state) =>
+      <option
+        value={ state }
+        key={ `state-${state}` }
+      >
+        { state }
+      </option>
+    );
+
     return (
       <div className={ this.props.bem('content') }>
         <div className="grid">
@@ -131,17 +160,40 @@ class OpenStoryContent extends React.Component {
               <select
                 className={ this.props.bem('select') }
                 valueLink={ this.linkState('state') }
+                disabled={ !this.canSelectState() }
               >
+                { states }
+              </select>
+            </div>
+          </div>
+
+          <div className="grid__row">
+            <div className="grid__col grid__col-2">
+              <label
+                className={ this.props.bem('label') }
+              >
+                Estimate
+              </label>
+            </div>
+            <div className="grid__col grid__col-10">
+              <select
+                className={ this.props.bem('select') }
+                valueLink={ this.linkState('estimate') }
+              >
+                <option
+                  value={ -1 }
+                  key={ `estimate-not-estimated` }
+                >
+                  Not estimated
+                </option>
                 {
-                  storyConstants.STATES
-                  .filter((type) => type !== 'icebox')
-                  .map((state) =>
-                      <option
-                        value={ state }
-                        key={ `state-${state}` }
-                      >
-                        { state }
-                      </option>
+                  this.props.estimateValues.map((estimate) =>
+                    <option
+                      value={ estimate }
+                      key={ `estimate-${estimate}` }
+                    >
+                      { estimate }
+                    </option>
                   )
                 }
               </select>

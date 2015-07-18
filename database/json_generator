@@ -10,12 +10,12 @@
     '{{repeat(60)}}',
     {
       id: '{{index(1)}}',
-      state: '{{random("icebox", "unstarted", "started", "finished", "delivered", "accepted", "rejected")}}',
+      state: '{{random("not_estimated", "icebox", "unstarted", "started", "finished", "delivered", "accepted", "rejected")}}',
       type: '{{random("feature", "chore", "bug", "release")}}',
       title: function() {
        return this.type + ' ' + this.id;
       },
-      points: '{{random(-1, 1, 2, 3, 5, 8)}}',
+      estimate: '{{random(-1, 1, 2, 3, 5, 8)}}',
       project_id: '{{integer(1, 3)}}'
     }
   ]

@@ -23,6 +23,7 @@ class ClosedStoryContent extends React.Component {
         <StoryActions
           actions={ this.props.story.actions }
           storyId={ this.props.story.id }
+          estimateValues={ this.props.estimateValues }
         />
       </div>
     );

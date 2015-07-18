@@ -2,9 +2,9 @@ import { createMockActionContext } from 'fluxible/utils';
 import MockService from 'fluxible-plugin-fetchr/utils/MockServiceManager';
 
 import MockStoriesStore from 'tests/fixtures/MockStoriesStore';
-import changeStoryState from 'app/actions/changeStoryState';
+import changeStoryEstimate from 'app/actions/changeStoryEstimate';
 
-describe('changeStoryState', function() {
+describe('changeStoryEstimate', function() {
   var context;
 
   beforeEach(function() {
@@ -17,15 +17,15 @@ describe('changeStoryState', function() {
     context.service.setService('story', function(method, params, body, config, callback) {
       callback(null, [{
         id: params.id,
-        state: body.state
+        estimate: body.estimate
       }]);
     });
   });
 
-  it('should change story state', function(done) {
-    context.executeAction(changeStoryState, {
+  it('should change story estimate', function(done) {
+    context.executeAction(changeStoryEstimate, {
       storyId: 0,
-      newState: 'finished'
+      newEstimate: 1
     }, function(err) {
       if(err) {
         return done(err);
@@ -38,7 +38,7 @@ describe('changeStoryState', function() {
       expect(context.dispatchCalls[0].payload).to.eql({
         story: {
           id: 0,
-          state: 'finished'
+          estimate: 1
         }
       });
 

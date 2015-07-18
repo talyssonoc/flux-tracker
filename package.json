@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "gulp",
-    "lint": "eslint app/**/*.js",
-    "test": "karma start",
+    "lint": "node_modules/eslint/bin/eslint.js app/**/*.js",
+    "test": "node_modules/karma-cli/bin/karma start",
     "seed": "NODE_PATH=. SEED_TASK=1 node_modules/babel/bin/babel-node app/helpers/seed"
   },
   "dependencies": {
@@ -44,7 +44,9 @@
     "gulp-util": "^3.0.6",
     "gulp-webpack-build": "^0.11.1",
     "json-loader": "~0.5.2",
+    "karma": "^0.12.36",
     "karma-chai": "^0.1.0",
+    "karma-cli": "^0.1.0",
     "karma-mocha": "^0.2.0",
     "karma-phantomjs-shim": "1.0.0",
     "karma-phantomjs-launcher": "^0.2.0",

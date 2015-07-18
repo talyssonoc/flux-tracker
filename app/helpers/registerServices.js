@@ -6,10 +6,16 @@ export default function registerServices(app) {
 
   let services = fs.readdirSync(path.join(app.root, 'services'));
 
-  services.forEach((service) => {
-    let servicePath = path.join(app.root, 'services', service);
+  services.forEach((serviceName) => {
+    let servicePath = path.join(app.root, 'services', serviceName);
+    let Service = require(servicePath);
 
-    fetchr.registerService(require(servicePath));
+    const service = new Service({
+      serviceName: Service.serviceName,
+      collection: Service.collection
+    });
+
+    fetchr.registerService(service);
   });
 
   return fetchr;

@@ -1,3 +1,11 @@
-import createService from 'app/helpers/createService';
+import BaseService from 'addons/BaseService';
 
-export default createService({ name: 'project' });
+class ProjectService extends BaseService {
+  static serviceName = 'project'
+
+  constructor(options) {
+    super(options);
+  }
+}
+
+export default ProjectService;

@@ -50,17 +50,22 @@
   &__actions {
     float: right;
 
-    &__button {
-      width: 55px;
+    %action-button {
+      margin-right: 5px;
+      padding: 2px 4px;
       border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 3px;
       font-family: helvetica;
       font-size: 11px;
       font-weight: bold;
-      cursor: pointer;
       color: #fff;
-      border-radius: 3px;
-      padding: 2px 4px;
-      margin-right: 5px;
+      cursor: pointer;
+    }
+
+    &__button {
+      @extend %action-button;
+
+      width: 55px;
 
       &:last-child {
         margin-right: 0;
@@ -88,6 +93,16 @@
 
       &--deliver {
         background-color: $color-deliver;
+      }
+    }
+
+    &__estimate {
+      @extend %action-button;
+
+      background-color: $color-estimate;
+
+      &:last-child {
+        margin-right: 0;
       }
     }
   }

@@ -9,7 +9,8 @@ class Story extends React.Component {
 
   static defaultProps = {
     bem: B.with('story'),
-    className: ''
+    className: '',
+    estimateValues: [1, 2, 3, 5, 8]
   }
 
   constructor(props) {
@@ -45,6 +46,7 @@ class Story extends React.Component {
           toggleHandler={ () => this.toggleOpenClosed() }
           story={ this.props.story }
           bem={ this.props.bem }
+          estimateValues= { this.props.estimateValues }
         />
       </div>
     );

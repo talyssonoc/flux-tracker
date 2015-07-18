@@ -5,7 +5,7 @@ export default function updateStory(context, payload, done) {
   context.service.update('story',
     { id: payload.story.id },
     payload.story,
-    { upsert: payload.story._new },
+    {},
     function(err, stories) {
       if(err) {
         console.error(err);

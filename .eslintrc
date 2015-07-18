@@ -9,4 +9,5 @@
     no-unused-vars: 0 // see https://github.com/babel/babel-eslint/issues/21
     camelcase: 0
     no-alert: 0
+    no-underscore-dangle: 0
     new-cap: [2, { capIsNewExceptions: ['B'] }]

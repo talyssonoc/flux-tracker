@@ -26,6 +26,7 @@ class StoryActions extends React.Component {
               <Action
                 storyId={ this.props.storyId }
                 key={ `story-action-${action}` }
+                estimateValues={ this.props.estimateValues }
               />
             );
           })
