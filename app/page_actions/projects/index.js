@@ -1,10 +1,10 @@
-import projectConstants from 'app/constants/project';
+import Actions from 'app/constants/Actions';
 
 export default function index(context, payload, done) {
 
   context.service.read('project', {}, {}, function(err, projects) {
 
-    context.dispatch(projectConstants.RECEIVE_PROJECTS, {
+    context.dispatch(Actions.RECEIVE_PROJECTS, {
       projects: projects
     });
 

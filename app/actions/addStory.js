@@ -1,8 +1,8 @@
-import projectConstants from 'app/constants/project';
+import Actions from 'app/constants/Actions';
 
 export default function addStory(context, payload, done) {
 
-  context.dispatch(projectConstants.ADD_STORY, {
+  context.dispatch(Actions.ADD_STORY, {
     story: {
       title: payload.title,
       project_id: payload.project_id

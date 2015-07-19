@@ -1,4 +1,4 @@
-import projectConstants from 'app/constants/project';
+import Actions from 'app/constants/Actions';
 
 export default function changeStoryState(context, payload, done) {
 
@@ -10,7 +10,7 @@ export default function changeStoryState(context, payload, done) {
         console.error(err);
       }
 
-      context.dispatch(projectConstants.UPDATE_STORY, {
+      context.dispatch(Actions.UPDATE_STORY, {
         story: stories[0]
       });
 

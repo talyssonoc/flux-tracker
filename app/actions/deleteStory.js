@@ -1,4 +1,4 @@
-import projectConstants from 'app/constants/project';
+import Actions from 'app/constants/Actions';
 
 export default function deleteStory(context, payload, done) {
 
@@ -10,7 +10,7 @@ export default function deleteStory(context, payload, done) {
         console.error(err);
       }
 
-      context.dispatch(projectConstants.DELETE_STORY, {
+      context.dispatch(Actions.DELETE_STORY, {
         storyId: payload.storyId
       });
 
