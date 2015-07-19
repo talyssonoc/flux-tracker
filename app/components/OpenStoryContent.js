@@ -1,25 +1,34 @@
 import React from 'react';
 import mixin from 'react-mixin';
+import { connectToStores } from 'fluxible-addons-react';
 
 import TextArea from 'react-textarea-autosize';
 
 import deleteStory from 'app/actions/deleteStory';
 import updateStory from 'app/actions/updateStory';
 import cancelCreateStory from 'app/actions/cancelCreateStory';
-import keyCodes from 'app/constants/keyCodes';
-import storyConstants from 'app/constants/story';
+import KeyCodes from 'app/constants/KeyCodes';
+import StoriesStore from 'app/stores/StoriesStore';
 
 import _ from 'lodash';
 import B from 'app/helpers/bem';
 import contextTypes from 'app/helpers/contextTypes';
 
+@connectToStores([ StoriesStore ], (context, props) => {
+  var storiesStore = context.getStore(StoriesStore);
+
+  return {
+    storyTypes: storiesStore.getStoryTypes()
+  };
+})
 @mixin.decorate(React.addons.LinkedStateMixin)
 class OpenStoryContent extends React.Component {
 
   static contextTypes = contextTypes()
 
   static defaultProps = {
-    className: ''
+    className: '',
+    storyTypes: []
   }
 
   constructor(props) {
@@ -65,7 +74,7 @@ class OpenStoryContent extends React.Component {
   }
 
   keyDownHandler(event) {
-    if(event.keyCode === keyCodes.ENTER) {
+    if(event.keyCode === KeyCodes.ENTER) {
       this.saveStory();
       event.stopPropagation();
     }
@@ -135,7 +144,7 @@ class OpenStoryContent extends React.Component {
                 valueLink={ this.linkState('type') }
               >
                 {
-                  storyConstants.TYPES.map((type) =>
+                  this.props.storyTypes.map((type) =>
                     <option
                       value={ type }
                       key={ `type-${type}` }

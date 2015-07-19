@@ -1,13 +1,14 @@
 import BaseStore from 'fluxible/addons/BaseStore';
 import routesConfig from 'configs/routes';
 import RouteStore from './RouteStore';
+import Actions from 'app/constants/Actions';
 
 class ApplicationStore extends BaseStore {
 
   static storeName = 'ApplicationStore'
 
   static handlers = {
-    'NAVIGATE_SUCCESS': 'handlePageTitle'
+    [Actions.NAVIGATE_SUCCESS]: 'handlePageTitle'
   }
 
   constructor(dispatcher) {

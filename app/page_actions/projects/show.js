@@ -1,5 +1,4 @@
-import projectConstants from 'app/constants/project';
-import storyConstants from 'app/constants/story';
+import Actions from 'app/constants/Actions';
 
 export default function show(context, payload, done) {
 
@@ -8,13 +7,13 @@ export default function show(context, payload, done) {
   context.service.read('project', { id: id }, {}, function(err, projects) {
     var project = projects[0];
 
-    context.dispatch(projectConstants.RECEIVE_CURRENT_PROJECT, {
+    context.dispatch(Actions.RECEIVE_CURRENT_PROJECT, {
       project: project
     });
 
     context.service.read('story', { project_id: project.id }, {}, function(err, stories) {
 
-      context.dispatch(storyConstants.RECEIVE_STORIES, {
+      context.dispatch(Actions.RECEIVE_STORIES, {
         stories: stories
       });
 

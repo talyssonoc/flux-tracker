@@ -1,4 +1,4 @@
-import projectConstants from 'app/constants/project';
+import Actions from 'app/constants/Actions';
 
 export default function changeStoryEstimate(context, payload, done) {
   context.service.update('story',
@@ -12,7 +12,7 @@ export default function changeStoryEstimate(context, payload, done) {
         console.error(err);
       }
 
-      context.dispatch(projectConstants.UPDATE_STORY, {
+      context.dispatch(Actions.UPDATE_STORY, {
         story: stories[0]
       });
 

@@ -1,8 +1,8 @@
-import projectConstants from 'app/constants/project';
+import Actions from 'app/constants/Actions';
 
 export default function cancelCreateStory(context, payload, done) {
 
-  context.dispatch(projectConstants.CANCEL_CREATE_STORY, {
+  context.dispatch(Actions.CANCEL_CREATE_STORY, {
     _tempId: payload._tempId
   });
 

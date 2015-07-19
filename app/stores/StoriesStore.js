@@ -1,7 +1,6 @@
 import BaseStore from 'fluxible/addons/BaseStore';
 
-import projectConstants from 'app/constants/project';
-import storyConstants from 'app/constants/story';
+import Actions from 'app/constants/Actions';
 
 import _ from 'lodash';
 import shortid from 'shortid';
@@ -11,11 +10,11 @@ class StoriesStore extends BaseStore {
   static storeName = 'StoriesStore'
 
   static handlers = {
-    [storyConstants.RECEIVE_STORIES]: 'handleReceiveStories',
-    [projectConstants.ADD_STORY]: 'handleAddStory',
-    [projectConstants.DELETE_STORY]: 'handleDeleteStory',
-    [projectConstants.UPDATE_STORY]: 'handleUpdateStory',
-    [projectConstants.CANCEL_CREATE_STORY]: 'handleCancelCreateStory'
+    [Actions.RECEIVE_STORIES]: 'handleReceiveStories',
+    [Actions.ADD_STORY]: 'handleAddStory',
+    [Actions.DELETE_STORY]: 'handleDeleteStory',
+    [Actions.UPDATE_STORY]: 'handleUpdateStory',
+    [Actions.CANCEL_CREATE_STORY]: 'handleCancelCreateStory'
   }
 
   constructor(dispatcher) {
@@ -43,6 +42,13 @@ class StoriesStore extends BaseStore {
       rejected: ['Restart']
     };
 
+    this.storyTypes = [
+      'feature',
+      'chore',
+      'bug',
+      'release'
+    ];
+
     this.stories = [];
   }
 
@@ -56,6 +62,10 @@ class StoriesStore extends BaseStore {
 
   getActions(story) {
     return this.actionsForStates[story.state];
+  }
+
+  getStoryTypes() {
+    return this.storyTypes;
   }
 
   handleReceiveStories(payload) {
