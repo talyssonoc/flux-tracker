@@ -24,6 +24,7 @@
     "fluxible-router": "^0.2.0",
     "lodash": "^3.9.3",
     "react": "^0.13.0",
+    "react-dnd": "^1.1.4",
     "react-mixin": "^1.6.0",
     "react-textarea-autosize": "^2.4.0",
     "serialize-javascript": "^1.0.0",
