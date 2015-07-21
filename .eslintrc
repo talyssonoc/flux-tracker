@@ -10,4 +10,4 @@
     camelcase: 0
     no-alert: 0
     no-underscore-dangle: 0
-    new-cap: [2, { capIsNewExceptions: ['B'] }]
+    new-cap: [2, { capIsNewExceptions: ['B', 'DropTarget', 'DragSource', 'DragDropContext'] }]
