@@ -30,6 +30,9 @@ class Column extends React.Component {
                   <Story
                     story={ story }
                     className={ this.props.bem('story') }
+                    changeColumnHandler={ (draggedStory, columnTo) => (
+                      this.props.changeColumnHandler(draggedStory, columnTo)
+                    )}
                   />
                 </li>
               )

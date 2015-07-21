@@ -3,7 +3,6 @@ import React from 'react';
 import storyActions from './story_actions';
 
 import B from 'app/helpers/bem';
-import contextTypes from 'app/helpers/contextTypes';
 
 class StoryActions extends React.Component {
 
@@ -12,8 +11,6 @@ class StoryActions extends React.Component {
     className: '',
     actions: []
   }
-
-  static contextTypes = contextTypes()
 
   render() {
     return (

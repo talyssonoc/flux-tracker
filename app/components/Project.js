@@ -1,10 +1,14 @@
 import React from 'react';
 import { connectToStores } from 'fluxible-addons-react';
+import HTML5Backend from 'react-dnd/modules/backends/HTML5';
+import { DragDropContext } from 'react-dnd';
 
 import StoriesStore from 'app/stores/StoriesStore';
 import Column from './Column';
+import changeStoryColumn from 'app/actions/changeStoryColumn';
 
 import B from 'app/helpers/bem';
+import contextTypes from 'app/helpers/contextTypes';
 
 @connectToStores([ StoriesStore ], (context, props) => {
   var storiesStore = context.getStore(StoriesStore);
@@ -13,6 +17,7 @@ import B from 'app/helpers/bem';
     stories: storiesStore.getStories()
   };
 })
+@DragDropContext(HTML5Backend)
 class Project extends React.Component {
 
   static defaultProps = {
@@ -20,6 +25,16 @@ class Project extends React.Component {
     className: '',
     visibleColumns: [],
     stories: []
+  }
+
+  static contextTypes = contextTypes()
+
+  changeStoryColumn(story, columnFrom, columnTo) {
+    story.column = columnTo;
+
+    this.context.executeAction(changeStoryColumn, {
+      story: story
+    });
   }
 
   render() {
@@ -46,6 +61,9 @@ class Project extends React.Component {
               <Column
                 name={ column }
                 stories={ columnsData[column] }
+                changeColumnHandler={ (story, columnTo) => (
+                  this.changeStoryColumn(story, column, columnTo)
+                )}
               />
             </div>
           )
