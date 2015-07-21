@@ -116,7 +116,8 @@ class StoriesStore extends BaseStore {
 
     _.assign(story, payload.story);
     story.actions = this.getActions(story);
-    story.column = this.getColumn(story);
+    // TODO remove the first possibility
+    story.column = story.column || this.getColumn(story);
 
     this.emitChange();
   }
